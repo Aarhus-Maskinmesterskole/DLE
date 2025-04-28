@@ -1,76 +1,91 @@
-# Workshop 1: Introduktion til IIOT Kommunikation i Node-RED
+# 👋 Velkommen til IIOT Workshops!
 
-## 🌟 Formål
-Workshoppen introducerer de studerende til grundlæggende IIOT-kommunikation og praktisk opsætning af forskellige industrielle protokoller. Fokus er på at forstå kommunikationsarkitektur, konfigurere flere typer IIOT-forbindelser i Node-RED, vurdere deres styrker og svagheder, samt dokumentere arbejdet professionelt.
+## 🌟 Introduktion
+Velkommen til vores samlede workshopforløb om **Industrial Internet of Things (IIOT)**!
+I dette forløb skal I arbejde med opsætning af datastrømme, overvågning, analyse, fejlhåndtering og beslutningsstøtte i industrielle systemer.
 
-Målet er, at de studerende ikke kun kan konfigurere systemer, men også vælge passende teknologier ud fra krav til drift, vedligeholdelse og datasikkerhed.
+Vi fokuserer på **praktisk læring gennem hands-on arbejde**. Workshopsene bygger ovenpå hinanden og forbereder jer til at kunne designe, opsætte og dokumentere driftssikre IIOT-løsninger.
+
+## 🤔 Vores forventninger til jer
+- I møder engagerede og aktive.
+- I arbejder selvstændigt eller i grupper.
+- I tager ansvar for jeres egen læring.
+- I spørger, hvis I støder på udfordringer - vi er her for at hjælpe jer videre, ikke for at give svarene.
+
+## 📆 Strukturen for workshops
+
+| Workshop | Tema |
+|:---------|:-----|
+| 1 | IIOT Kommunikation: MQTT, Modbus, HTTP, CoAP, OPC UA, AMQP |
+| 2 | Datahåndtering, Driftssikring og Beslutningsstøtte |
+
+Hver workshop afsluttes med:
+- Praktiske opgaver.
+- En **video**, hvor I demonstrerer, hvad I har sat op og hvordan det virker.
+- En **PowerPoint-præsentation**, hvor I beskriver teknologivalg, fordele/ulemper og refleksioner.
+- Portfolio-opsamling og dokumentation.
+
+## 🧑‍💻 Jeres rolle som studerende
+- **Arbejdende:** I skal bygge, teste, fejlfinde og forbedre jeres løsninger.
+- **Reflekterende:** I skal forholde jer til, hvad der virker, og hvad der kan forbedres.
+- **Dokumenterende:** I skal kunne forklare jeres arbejde og tankerne bag i både video og skrift.
+
+## 🧬 Vores rolle som faciliterende undervisere
+- Vi er **vejledere og sparringspartnere**, ikke traditionelle undervisere.
+- Vi giver ikke færdige løsninger, men hjælper jer med at finde svarene selv.
+- Vi stiller spørgsmål, udfordrer jeres tænkning og guider jer videre, når I kører fast.
+- Vi understøtter jeres arbejde med tekniske, metodiske og refleksive input.
+
+## 📚 Kompetencer I opbygger
+Når I har gennemført workshopsene, forventes det at I kan:
+- Forstå og implementere forskellige IIOT-kommunikationsprotokoller.
+- Overvåge og validere datastrømme.
+- Designe robuste datastruktur- og driftsovervågningsløsninger.
+- Anvende watchdogs og alarm-mekanismer.
+- Visualisere og logge data effektivt.
+- Arbejde selvstændigt med problemløsning i komplekse tekniske projekter.
+- Dokumentere og formidle tekniske systemer mundtligt og skriftligt.
+
+## 📅 Hvordan vi opfylder de faglige mål
+
+**Tema/fagemne: IIOT Baseret Dataopsamling**
+
+**Formål:**
+- Gennem workshopsene opnår I erfaring med udvikling og opsætning af IIOT-dataopsamlingssystemer, herunder deres interaktion med industrielle anlæg og kobling til IT-platforme.
+
+**Målbeskrivelse:**
+
+- **Viden:**
+  - I får viden om basal IIOT-arkitektur, anvendte protokoller og principper for automatisering, datafremskaffelse og beslutningsstøtte.
+
+- **Færdigheder:**
+  - I beskriver anvendelsesområder for standardløsninger gennem jeres sammenligning af protokoller.
+  - I kortlægger datastrømme i Node-RED og dokumenterer formål i jeres portfolio.
+  - I beskriver værdiskabelsen ved at sikre korrekt datahåndtering og beslutningsunderstøttelse.
+  - I opstiller systemer til kontrol og fejlidentifikation gennem watchdogs og alarmflows.
+
+- **Kompetencer:**
+  - I vurderer og foreslår hensigtsmæssige tekniske løsninger i mini-projekterne.
+  - I anvender Node-RED som service til dataanalyse og beslutningsstøtte i konfigurerede systemer.
+  - I arbejder med eksisterende services og workflows til analyse og beslutningsprocesser baseret på opsamlet data.
 
 ---
 
-## 🔄 Struktur for workshoppen
+## 📈 Evaluering og bedømmelse
+- Evalueringen sker på baggrund af **en løbende portfolio-opsamling i grupper** samt **individuelle quizbesvarelser**.
+- Ved forløbets afslutning vurderes gruppernes samlede portfolio.
+- Der gives bedømmelsen **Godkendt/Ikke godkendt**.
 
-- Introduktion: IIOT vs IT, Arkitektur og protokoloversigt
-- Gennemgang af hver IIOT-protokol: MQTT, Modbus TCP/IP, HTTP/REST, CoAP, OPC UA, AMQP
-- Opsætning af kommunikationstyper i Node-RED (praktisk arbejde)
-- Optagelse af video: Demonstration af opsætning
-- Udarbejdelse af PowerPoint: Fordele/ulemper sammenligning
-- Afleveringsinstruktioner og opsamling
-
----
-
-## 🗂️ Mappe- og Filstruktur (de skal aflevere)
-
-```
-Workshop1_IIOT_kommunikation/
-├── Video/                    # Videooptagelse af opsætninger
-│    └── iiot_protocol_setup_demo.mp4
-├── PowerPoint/               # Sammenligning af protokoller
-│    └── iiot_protocol_comparison.pptx
-├── Node-RED_Flows/            # Eksporterede Node-RED flows
-│    ├── mqtt_flow.json
-│    ├── modbus_flow.json
-│    ├── http_rest_flow.json
-│    ├── coap_flow.json
-│    ├── opcua_flow.json
-│    └── amqp_flow.json
-└── Dokumentation/            # Kort tekst om opsætning og erfaringer
-     └── opsummering.md
-```
+Portfolioen skal dokumentere:
+- Jeres tekniske opsætninger (flows, screenshots, dataeksempler).
+- Jeres refleksioner og analyser.
+- Hvordan I har arbejdet med datavalidering, driftssikring og beslutningsstøtte.
 
 ---
 
-## 👩‍💻 Kompetencer efter workshoppen
+# 📊 Afsluttende bemærkninger
+Dette er en **aktiv læringsrejse**, hvor du opbygger viden og kompetencer, der er direkte anvendelige i moderne industrielle og teknologiske miljøer.
 
-Når workshoppen er gennemført, forventes det, at den studerende:
-
-- Kan beskrive forskellen på centrale IIOT-protokoller.
-- Kan opsætte og konfigurere MQTT, Modbus TCP/IP, HTTP/REST, CoAP, OPC UA og AMQP i Node-RED.
-- Kan forklare fordele og ulemper ved hver protokol i forhold til drift, vedligeholdelse og datasikkerhed.
-- Kan dokumentere teknisk opsætning gennem video og skriftlig PowerPoint-præsentation.
-- Kan identificere hvor driftssikkerhed, skalering og sikkerhed spiller en rolle i valg af protokol.
+Vi glæder os til at arbejde sammen med jer!
 
 ---
-
-## 📅 Hvad skal de aflevere
-
-**Følgende skal afleveres, når de vurderer sig selv færdige med workshoppen:**
-
-1. **Video (MP4)** der viser:
-   - Kort forklaring på hver protokol.
-   - Live demonstreret opsætning i Node-RED.
-
-2. **PowerPoint-præsentation (PPTX)** der viser:
-   - Fordele og ulemper for hver protokol.
-   - Samlet vurdering af hvilken protokol der er bedst til driftssikre IIOT-systemer.
-
-3. **Eksporterede Node-RED flows (JSON-filer)** for alle 6 protokoller.
-
-4. **Kort opsummering (Markdown eller PDF)**:
-   - Hvordan gik opsætningen?
-   - Hvilke problemer blev mødt, og hvordan blev de løst?
-
----
-
-# 🎉 Klar til at komme i gang!
-Workshoppen afsluttes med opsamling og forberedelse til næste workshop, hvor vi arbejder videre med real-world datastrømme og avancerede datasikkerhedsaspekter.
-
