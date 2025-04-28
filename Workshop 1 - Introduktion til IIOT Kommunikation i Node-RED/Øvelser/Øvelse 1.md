@@ -1,64 +1,63 @@
-
 # 📝 Øvelse 1: MQTT kommunikation i Node-RED
 
 ## 🌟 Formål
-Lære at etablere letvægts, pub/sub-baseret kommunikation mellem enheder via MQTT-protokollen. Fokus er på opsætning af en simpel datastrøm med korrekt tidsstempling og grundlæggende fejlhåndtering.
+Formålet med denne øvelse er at give de studerende en grundlæggende forståelse af MQTT-protokollen og dens anvendelse i IIOT-systemer. Fokus er på at opsætte en komplet datastrøm i Node-RED, hvor data publiceres, abonneres, tidsstemples og monitoreres korrekt. Derudover introduceres grundlæggende fejlhåndteringsteknikker for at sikre pålidelig drift.
 
 ---
 
 ## 📖 Teori (læs først)
 
 **Hvad er MQTT?**
-- MQTT (Message Queuing Telemetry Transport) er en letvægtsprotokol designet til effektiv beskedudveksling over netværk med lav båndbredde.
-- MQTT bruger et **publish/subscribe**-mønster:
-  - En **publisher** sender beskeder til et bestemt **topic**.
-  - En **subscriber** lytter til et topic og modtager beskeder.
+- MQTT (Message Queuing Telemetry Transport) er en ekstremt letvægtsprotokol udviklet til effektiv og pålidelig kommunikation i netværk med begrænset båndbredde og høje latensforhold.
+- Den anvender et **publish/subscribe**-mønster, hvilket betyder, at enheder ikke kommunikerer direkte, men via en central broker.
 
-**Grundbegreber:**
-- **Broker:** En server, som håndterer modtagelse og videresendelse af beskeder.
-- **Client:** En enhed, som enten publicerer eller subscriber til data.
+**Nøglekomponenter:**
+- **Broker:** Hovedserveren, der modtager beskeder fra publishers og distribuerer dem til subscribers.
+- **Client:** Enhver enhed, der enten sender (publisher) eller modtager (subscriber) beskeder.
 
-**Hvorfor bruge MQTT i IIOT?**
-- Lavt dataforbrug
-- Hurtig kommunikation
-- Robust mod netværksforstyrrelser
-- Understøtter mange samtidige forbindelser
+**Fordele ved MQTT:**
+- Minimal netværksbelastning
+- Hurtig og pålidelig levering af beskeder
+- Skalerbar til tusindvis af enheder
+- Understøtter "Last Will and Testament" for fejlhåndtering
 
 **Eksempler på brug:**
-- Sensorer der sender temperaturdata til overvågningssystemer.
-- Maskiner der rapporterer driftstilstand til en cloud-platform.
+- Fjernovervågning af energiforbrug
+- Live rapportering fra sensorer i produktionsanlæg
+- Smart City applikationer (trafiklys, miljøsensorer)
 
 ---
 
 ## 🔧 Forudsætninger
 
-Før du kan gennemføre denne øvelse, skal følgende være installeret og klar:
+For at kunne gennemføre denne øvelse, skal følgende software være installeret og køreklar:
 
-- Node-RED installeret og kørende lokalt.
-- En MQTT broker installeret:
-  - Installér **Mosquitto** lokalt (anbefalet)
+- Node-RED installeret lokalt på PC eller i Docker.
+- MQTT broker installeret:
+  - Installér **Mosquitto** lokalt:
     - Linux: `sudo apt install mosquitto mosquitto-clients`
-    - Windows: Installer via Mosquitto installer fra Eclipse hjemmeside.
+    - Windows: Brug Mosquitto Windows installer fra Eclipse hjemmeside.
     - Docker: `docker run -it -p 1883:1883 eclipse-mosquitto`
-  - Alternativt brug en public MQTT broker (f.eks. test.mosquitto.org).
+  - Alternativ: Brug en offentlig MQTT broker (eks. `test.mosquitto.org`).
 
 ---
 
 ## 🔄 Praktisk (step-by-step)
 
 ### 1. Start Node-RED
-- Start Node-RED og åbn det i din browser (`http://localhost:1880`).
+- Start Node-RED-tjenesten.
+- Åbn browser og gå til `http://localhost:1880`.
 
 ### 2. Opsæt Publish-flow
 - Træk en `inject` node ind på arbejdsfladen.
 - Konfigurer `inject` node:
   - Payload type: **string**
   - Værdi: eksempelvis `25`
-  - Repeat: Send hvert 5. sekund.
+  - Interval: Hvert 5. sekund.
 
 - Tilføj en `function` node:
   - Navn: "Tilføj timestamp"
-  - Indhold:
+  - Funktion:
     ```javascript
     msg.payload = {
       temperatur: msg.payload,
@@ -68,45 +67,51 @@ Før du kan gennemføre denne øvelse, skal følgende være installeret og klar:
     ```
 
 - Træk en `mqtt out` node ind:
-  - Forbind den til din MQTT broker.
-  - Topic: fx `sensor/temperatur`.
+  - Konfigurer med broker information.
+  - Topic: eksempelvis `sensor/temperatur`.
 
-- Forbind `inject` node til `function` node og videre til `mqtt out` node.
+- Forbind `inject` -> `function` -> `mqtt out`.
 
 ### 3. Opsæt Subscribe-flow
 - Træk en `mqtt in` node ind.
-- Konfigurer den:
-  - Forbind til samme broker.
-  - Topic: `sensor/temperatur`.
+- Konfigurer til samme broker.
+- Lyt på topic `sensor/temperatur`.
 
-- Træk en `debug` node ind.
-- Forbind `mqtt in` node til `debug` node.
+- Træk en `debug` node ind og forbind til `mqtt in` node.
 
 ### 4. Deploy flowet
-- Klik på "Deploy" for at gemme og starte flowet.
+- Klik på "Deploy" for at gemme ændringerne og starte flows.
 
 ### 5. Test kommunikationen
-- Hold øje med debug-vinduet:
-  - Du skal se beskeder med temperatur og timestamp komme hvert 5. sekund.
+- Monitorer debug-vinduet:
+  - Bekræft modtagelse af JSON-objekter indeholdende temperatur og tidsstempel.
 
 ### 6. Fejlhåndtering
 - Hvis ingen beskeder modtages:
-  - Kontrollér broker-adresse og port.
-  - Kontrollér topic-navne (de er case-sensitive).
-  - Brug "status" nodes for at se forbindelsesstatus.
+  - Kontrollér, at broker IP og port er korrekte.
+  - Kontrollér, at topic-navne matcher eksakt (case-sensitive).
+  - Brug "status" nodes for at spore forbindelsesproblemer.
 
 ### 7. Gem arbejdet
-- Eksporter flowet som en `.json`-fil, klar til aflevering.
+- Eksporter flowet som en `.json`-fil:
+  - Brug "Export" > "Clipboard" i Node-RED menuen.
+  - Gem til en lokal fil for aflevering.
+
+### 8. Bonus: Tilføj Heartbeat/Watchdog (valgfri)
+- Lav en ekstra `inject` node som sender "alive" besked hvert 10. sekund til topic `sensor/heartbeat`.
+- Brug en `trigger` node til at alarmere, hvis heartbeat ikke modtages rettidigt.
 
 ---
 
 # 💡 Noter
-- Alle data skal være korrekt **tidsstemplet**.
-- Fejlhåndtering er obligatorisk: sikre reaktion på manglende forbindelse.
-- Dokumentér i din opsummering hvordan flowet blev testet og eventuelle problemer du stødte på.
+- Data skal altid være **tidsstemplet**.
+- Der skal implementeres **grundlæggende fejlhåndtering**.
+- Dokumentér testforløbet:
+  - Hvordan du testede flows.
+  - Eventuelle fejl og løsninger.
+- Reflektér over fordelene ved at bruge MQTT i driftssikre IIOT-systemer.
 
 ---
 
 # 🎉 Klar til næste øvelse!
-Når denne øvelse er gennemført, fortsæt til Øvelse 2: Modbus TCP/IP kommunikation.
-
+Når denne øvelse er gennemført, fortsæt til Øvelse 2: Modbus TCP/IP kommunikation, hvor vi arbejder med direkte registerkommunikation mellem enheder.
