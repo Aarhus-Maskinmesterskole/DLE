@@ -143,14 +143,3 @@ Når denne udvidede opgave er afsluttet, fortsæt til Øvelse 5: OPC UA kommunik
 
 
 ---
-
-# 💡 Noter
-- Husk at data stadig skal **tidsstemples**, hvis du bearbejder svaret.
-- CoAP fungerer bedst i kontrollerede miljøer på grund af UDP's upålidelige natur.
-- Dokumentér eventuelle fejl og hvordan du forsøgte at løse dem.
-- Overvej anvendelsesmuligheder for CoAP i batteridrevne IIOT-enheder.
-
----
-
-# 🎉 Klar til næste øvelse!
-Efter denne øvelse fortsætter vi til Øvelse 5: OPC UA kommunikation, hvor vi arbejder med sikre og pålidelige industrielle standarder til maskindataudveksling.
