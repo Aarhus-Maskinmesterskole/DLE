@@ -1,88 +1,78 @@
-# 🧪 Øvelse 4: Beskyt forbindelsen med TLS og adgangskontrol
+# 🧪 Øvelse 4: Implementér TLS og adgangskontrol
 
 ## 🎯 Formål
-I denne øvelse bygger vi videre på din praktiske erfaring med Man-in-the-Middle (MITM)-angreb fra de tidligere øvelser. Du har nu set, hvordan MQTT-beskeder kan opsnappes og endda manipuleres, hvis forbindelsen er ubeskyttet. Nu skal du tage det næste skridt: at implementere og afprøve beskyttelsesforanstaltninger, som anvendes i industrien for at sikre datastrømme.
+I denne øvelse skal du sikre dit MQTT-setup mod Man-in-the-Middle (MITM)-angreb, som du testede i de forrige øvelser. Du skal implementere **TLS-kryptering** og **adgangskontrol med brugernavn og adgangskode** på både broker og klient. Formålet er, at du oplever den tydelige forskel mellem ubeskyttet og beskyttet datakommunikation, og forstår, hvordan disse mekanismer forhindrer både afluring og manipulation.
 
-Målet med øvelsen er, at du hands-on får forståelse for, hvordan TLS (Transport Layer Security) og adgangskontrol (med brugernavn og adgangskode) virker i praksis. Du vil tydeligt kunne se forskellen på ubeskyttet og beskyttet MQTT-kommunikation – både ved at analysere trafikken med dit MITM-script og ved at konfigurere dine systemer korrekt. Når øvelsen er gennemført, har du ikke blot forståelse for hvorfor man bruger sikkerhed, men også hvordan det gøres.
+Denne øvelse er central i Workshop 3, fordi det er her du **går fra at simulere angrebet til at stoppe det**. Du ser med egne øjne, hvordan korrekt sikkerhedsopsætning effektivt blokerer forsøg på datatyveri.
 
 ---
 
 ## 🛠️ Forudsætninger
-For at du kan gennemføre denne øvelse effektivt, skal du have:
-
-- Gennemført Øvelse 2 og 3, hvor du har brugt `mitm.py` til at aflytte og manipulere MQTT-trafik.
-- En MQTT-broker installeret lokalt eller i netværket, der understøtter TLS – fx Mosquitto.
-- Adgang til en MQTT-klient som Node-RED, MQTT Explorer, eller et andet værktøj med TLS-understøttelse.
-- Adgang til certifikater (enten udleveret i undervisningen eller selv genereret med OpenSSL).
-- Grundlæggende forståelse for hvordan MQTT fungerer, og hvordan klient og broker kommunikerer.
+- Du har opsnappet beskeder via MITM (fx med `mitm.py`).
+- Du har en MQTT-broker til rådighed (Mosquitto anbefales).
+- Du har en MQTT-klient (Node-RED, MQTT Explorer eller andet).
+- Du kan ændre konfiguration og genstarte din broker.
 
 ---
 
-## ⚙️ Trin-for-trin: Fra ubeskyttet til sikret kommunikation
+## ⚙️ Trin-for-trin
 
-1. **Opsæt TLS på din broker (fx Mosquitto)**
-   - Du skal enten bruge de certifikater du har fået udleveret, eller selv generere dem med OpenSSL. En typisk opsætning kræver:
-     - `ca.crt` – Certificate Authority
-     - `server.crt` – Brokeren's offentlige certifikat
-     - `server.key` – Brokeren's private nøgle
-   - Rediger din `mosquitto.conf` så den kun accepterer TLS-krypterede forbindelser:
-     ```
-     listener 8883
-     cafile ca.crt
-     certfile server.crt
-     keyfile server.key
-     require_certificate false
-     allow_anonymous false
-     password_file passwords.txt
-     ```
-   - Genstart brokeren, og kontroller at den nu kun svarer på port 8883 og kræver login.
+### 1. **Opsæt TLS på din broker**
+- Brug enten udleverede certifikater eller generér selv med OpenSSL:
+  - CA-certifikat: `ca.crt`
+  - Server-certifikat: `server.crt`
+  - Server-nøgle: `server.key`
+- Rediger `mosquitto.conf` og tilføj:
+  ```
+  listener 8883
+  cafile ca.crt
+  certfile server.crt
+  keyfile server.key
+  require_certificate false
+  allow_anonymous false
+  password_file passwords.txt
+  ```
+- Genstart brokeren og tjek at den kører på port 8883 med TLS.
 
-2. **Tilføj adgangskontrol**
-   - Brug Mosquittos indbyggede værktøj til at oprette brugere:
-     ```bash
-     mosquitto_passwd -c passwords.txt student
-     ```
-   - Test forbindelser med korrekt og forkert brugernavn/adgangskode for at sikre dig, at adgangsbegrænsningen fungerer.
+### 2. **Tilføj brugere og adgangskontrol**
+- Opret bruger med Mosquittos terminalværktøj:
+  ```bash
+  mosquitto_passwd -c passwords.txt student
+  ```
+- Test, at du **ikke kan forbinde** uden brugernavn eller med forkert adgangskode.
 
-3. **Opsæt klienten med TLS og login**
-   - I Node-RED skal du bruge en `mqtt-broker` node og konfigurere:
-     - Host: `mqtts://<din-IP>:8883`
-     - TLS-config: indlæs CA-certifikatet
-     - Brugernavn og adgangskode
-   - I MQTT Explorer vælger du TLS og uploader certifikaterne, og indtaster de samme login-oplysninger.
+### 3. **Tilpas klienten til at forbinde via TLS**
+- I Node-RED:
+  - Tilføj MQTT-broker node og sæt URL til `mqtts://<din-IP>:8883`
+  - Angiv brugernavn og adgangskode
+  - Under TLS: upload `ca.crt` som CA-certifikat
+- I MQTT Explorer:
+  - Indstil connection til TLS og brug certifikat + login
 
-4. **Genkør dit MITM-script (mitm.py)**
-   - Start MITM-scriptet som før og prøv at aflytte trafikken mellem klient og broker.
-   - Du vil opdage at beskederne ikke længere kan læses – de er nu krypteret.
-   - Hvis du forsøger at manipulere beskeder, vil de ikke have nogen effekt.
-
----
-
-## 🔍 Observationer og testresultater
-Under og efter opsætning, læg mærke til:
-
-- Hvordan adfærden i terminalen/GUI ændrer sig.
-- Om du kan aflæse beskeder i klartekst som før.
-- Hvordan brokeren håndterer forkerte loginforsøg.
-- Om du kan se om forbindelsen er krypteret (f.eks. via TLS-håndtryk i log eller GUI).
-
-Notér dine observationer, da du skal bruge dem til dokumentation og refleksion.
+### 4. **Gentag MITM-angrebet**
+- Kør `mitm.py` og forsøg at opsnappe trafik igen.
+- Observer:
+  - Får du stadig adgang til payloads?
+  - Ser du kun binære/krypterede data?
+  - Får du afviste forbindelser?
 
 ---
 
-## 📋 Refleksion og evaluering
-Besvar følgende spørgsmål i din portfolio, og inddrag dine observationer:
-
-- Hvordan forhindrede TLS, at du kunne aflæse data via MITM?
-- Hvordan sikrer adgangskontrol mod uautoriseret adgang til systemet?
-- Hvilke styrker og svagheder er der ved at bruge selv-signed certifikater i undervisningsmiljøet?
-- Hvor og hvordan ser du TLS og login anvendt i virkelige industrielle miljøer?
-
-Skriv også gerne dine egne erfaringer eller overraskelser du havde under opsætningen.
+## 🔍 Observationer
+- Notér hvordan MITM-scriptet opfører sig nu:
+  - Bliver beskeder afvist?
+  - Er data ulæselige?
+- Dokumentér hvad der ændrer sig før/efter TLS.
 
 ---
 
-> 🎓 Aflever dokumentation og refleksion i din gruppeportfolio. Du skal vise, hvad du gjorde før og efter, og forklare forskellen det gjorde for datasikkerheden.
+## 📋 Refleksion
+- Hvordan forhindrer TLS aflytning og manipulation?
+- Hvilken rolle spiller adgangskontrol i at beskytte systemet?
+- Hvordan kan du sikre korrekt vedligeholdelse af certifikater?
+- Hvordan oplevede du forskellen i datatilgængelighed som angriber?
 
-👉 Når du er færdig, går du videre til Øvelse 5, hvor vi arbejder med logging, sporbarhed og dokumentation af hændelser.
+> 🎓 Din dokumentation af før/efter-effekten bliver central i Øvelse 5 og 6.
+
+👉 Gå videre til Øvelse 5, hvor du begynder at logge dine observationer og opbygge din tekniske dokumentation.
 
