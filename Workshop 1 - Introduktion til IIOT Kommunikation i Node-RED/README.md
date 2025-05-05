@@ -3,7 +3,7 @@
 ## 🌟 Formål
 Workshoppen introducerer de studerende til grundlæggende IIOT-kommunikation og praktisk opsætning af forskellige industrielle protokoller. Fokus er på at forstå kommunikationsarkitektur, konfigurere flere typer IIOT-forbindelser i Node-RED, vurdere deres styrker og svagheder, samt dokumentere arbejdet professionelt.
 
-Målet er , at de studerende ikke kun kan konfigurere systemer, men også vælge passende teknologier ud fra krav til drift, vedligeholdelse og datasikkerhed.
+Målet er, at de studerende ikke kun kan konfigurere systemer, men også vælge passende teknologier ud fra krav til drift, vedligeholdelse og datasikkerhed.
 
 ---
 
