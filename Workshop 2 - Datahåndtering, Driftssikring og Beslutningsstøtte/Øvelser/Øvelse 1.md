@@ -18,7 +18,7 @@ Denne øvelse fokuserer på at etablere en stabil og fleksibel dataopsamlingsstr
 
 - **MQTT:** Bruges til letvægts pub/sub kommunikation.
 - **Modbus TCP/IP:** Bruges til dataudveksling med klassisk industriel hardware.
-- **OPC UA:** Bruges til sikker og struktureret maskindataudveksling.
+- **OPC UA:** Bruges til sikker og struktureret maskindataudveksling mellem to systemer eksempelvis et SCADA-system og et IT-baseret ordrestyringssystem.
 - **HTTP/REST API:** Bruges til at hente data fra eksterne webservices.
 - **AMQP:** Bruges til pålidelig beskedudveksling via message brokers.
 
@@ -120,6 +120,8 @@ Formålet er at simulere en realistisk IIOT-situation, hvor flere forskellige ty
 - Brug en klar struktur fx: `workshop2_oevelse1_dataopsamling.json`
 
 ---
+
+# ABR: Skal vi have lavet datastrømme på forhånd? Måske fra Casen? Hvis vi kører NodeRed i skyen - så kan vi have de nødvendige porte mm. på plads?
 
 # 💡 Tips og ekstraudfordring
 - Brug en "inject" node som midlertidig data-generator, hvis en datastrøm ikke virker.
