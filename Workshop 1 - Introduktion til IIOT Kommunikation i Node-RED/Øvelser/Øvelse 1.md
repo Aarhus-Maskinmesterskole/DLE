@@ -32,21 +32,23 @@ Formålet med denne øvelse er at give de studerende en grundlæggende forståel
 
 For at kunne gennemføre denne øvelse, skal følgende software være installeret og køreklar:
 
-- Node-RED installeret lokalt på PC eller i Docker.
-- MQTT broker installeret:
-  - Installér **Mosquitto** lokalt:
+- Adgang til en Node Red på din PC eller i skyen
+- Læs mere om installation på egen PC i https://nodered.org/docs/getting-started/local
+- Adgang til MQTT broker
+    - Installér **Mosquitto** lokalt:
     - Linux: `sudo apt install mosquitto mosquitto-clients`
     - Windows: Brug Mosquitto Windows installer fra Eclipse hjemmeside.
     - Docker: `docker run -it -p 1883:1883 eclipse-mosquitto`
+
   - Alternativ: Brug en offentlig MQTT broker (eks. `test.mosquitto.org`).
+  - Studerende på AAMS har adgang til en fælles MQTT broker: 178.128.199.129:1883
 
 ---
 
 ## 🔄 Praktisk (step-by-step)
 
 ### 1. Start Node-RED
-- Start Node-RED-tjenesten.
-- Åbn browser og gå til `http://localhost:1880`.
+- Start Node-RED-tjenesten i skyen eller gå til `http://localhost:1880`.
 
 ### 2. Opsæt Publish-flow
 - Træk en `inject` node ind på arbejdsfladen.
