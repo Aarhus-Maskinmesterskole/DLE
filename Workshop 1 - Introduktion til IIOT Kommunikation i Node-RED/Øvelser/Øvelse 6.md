@@ -86,7 +86,8 @@ For at kunne gennemføre denne øvelse, skal du have følgende klar:
 
 ## 🔄 Praktisk (step-by-step)
 
-For inspiration se [AMQP](https://www.youtube.com/watch?v=lru_T4uLo98&t=92s)
+For inspiration se:
+1. [AMQP - Lokalt](https://www.youtube.com/watch?v=lru_T4uLo98&t=92s)
 
 ### 1. Start RabbitMQ Server
 - Start RabbitMQ-serveren lokalt eller i Docker.
