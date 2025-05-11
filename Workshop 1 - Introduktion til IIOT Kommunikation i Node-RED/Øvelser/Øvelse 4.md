@@ -54,6 +54,8 @@ For at kunne gennemføre denne øvelse, skal følgende være klar:
 
 Denne udgave af Øvelse 4 fokuserer på at opsætte **både en CoAP-sender og en CoAP-modtager** i Node-RED. Enten i samme flow eller sammen med en sidemand.
 
+For inspiration så se [YouTube - Coap](https://www.youtube.com/watch?v=lru_T4uLo98)
+
 ---
 
 ## 🔄 Del 1: CoAP Server (Modtager)
