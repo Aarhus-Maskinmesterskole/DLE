@@ -1,7 +1,7 @@
 # 📝 Øvelse 3: Logging til CSV og SQLite Samtidigt (Opdateret)
 
 ## 🌟 Formål
-Denne øvelse fokuserer på at etablere en **pålidelig og struktureret logging** af IIOT-data til både CSV-filer og en SQLite database. I skal sikre, at data fra sanity-checked datastrømme gemmes korrekt og kan anvendes til historisk analyse og fejlfinding.
+Denne øvelse fokuserer på at etablere en **pålidelig og struktureret logging** af IIOT-data til både CSV-filer og/eller SQLite database (advanceret - optional). I skal sikre, at data fra sanity-checked datastrømme gemmes korrekt og kan anvendes til historisk analyse og fejlfinding.
 
 ---
 
@@ -60,7 +60,7 @@ return msg;
 ```
 - Vælg "Append to file" i `file` node indstillinger.
 
-### 3. Logging til SQLite
+### 3. Logging til SQLite (advanceret)
 - Installer `node-red-node-sqlite` hvis nødvendigt.
 - Træk en `sqlite` node ind.
 - Opret en database og tabel med følgende struktur:
