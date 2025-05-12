@@ -54,7 +54,7 @@ Formålet er at simulere en realistisk IIOT-situation, hvor flere forskellige ty
 - Alle indsamlede data skal beriges med metadata (unit, source, timestamp, status).
 - Datastrømmene bruges senere til:
   - Driftsovervågning (sanity-checks og watchdogs)
-  - Logging (CSV og SQLite)
+  - Logging i CSV (for udfordring brug SQLite)
   - Visualisering og alarmering på dashboard
   - Automatisk beslutningsstøtte på baggrund af analyserede data
 
