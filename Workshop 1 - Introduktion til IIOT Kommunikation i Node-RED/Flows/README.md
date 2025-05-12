@@ -51,6 +51,7 @@ For hvert eksempel-flow nedenfor:
     * **Topic:** Ændr `sensor/temperatur` i `mqtt in` og `mqtt out` noderne til de topics, du vil bruge.
  
 **Eksempel**
+
 ```javascript
 [
     {
