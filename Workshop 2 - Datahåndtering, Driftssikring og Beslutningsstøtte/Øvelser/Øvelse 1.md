@@ -17,9 +17,9 @@ Denne øvelse fokuserer på at etablere en stabil og fleksibel dataopsamlingsstr
 **Eksempler på protokoller:**
 
 - **MQTT:** Bruges til letvægts pub/sub kommunikation.
-- **Modbus TCP/IP:** Bruges til dataudveksling med klassisk industriel hardware.
-- **OPC UA:** Bruges til sikker og struktureret maskindataudveksling.
-- **HTTP/REST API:** Bruges til at hente data fra eksterne webservices.
+- **Modbus TCP/IP:** Bruges til dataudveksling med klassisk industriel hardware (PLC'er, sensorer mv.).
+- **CoAP:** Bruges til letvægts request/response kommunikation, designet til ressourcebegrænsede enheder (IoT).
+- **WebSocket:** Bruges til vedvarende, tovejs realtidskommunikation (f.eks. mellem server og web-klient).
 - **AMQP:** Bruges til pålidelig beskedudveksling via message brokers.
 
 **Metadata er obligatorisk:** Alle datapakker skal indeholde:
@@ -38,8 +38,8 @@ Dette sikrer, at data kan anvendes effektivt i efterfølgende øvelser til fejlh
 ## 📖 Kontekst for datastrømmen
 
 I denne øvelse opsamler vi **måledata fra to forskellige industrielle kilder**. Eksempler på datastrømme:
-- **Sensorstrøm 1:** Temperaturmålinger fra en produktionslinje (MQTT eller HTTP API).
-- **Sensorstrøm 2:** Trykmålinger fra en kompressor (Modbus TCP/IP eller OPC UA).
+- **Sensorstrøm 1:** Temperaturmålinger fra en produktionslinje (MQTT eller web socket).
+- **Sensorstrøm 2:** Trykmålinger fra en Tjørring Hustand (Modbus TCP eller Coap).
 
 Formålet er at simulere en realistisk IIOT-situation, hvor flere forskellige typer sensorer rapporterer til et centralt system.
 
@@ -69,8 +69,8 @@ Formålet er at simulere en realistisk IIOT-situation, hvor flere forskellige ty
 
 ## 2. Opret datastrøm 1
 - Vælg en af følgende protokoller:
-  - **MQTT, Modbus TCP/IP, OPC UA, HTTP/REST eller AMQP**.
-- Træk relevant input-node ind (fx mqtt in, modbus-read, http request, amqp in).
+  - **MQTT, Modbus TCP/IP, Coap eller Websocket**.
+- Træk relevant input-node ind (fx mqtt in, modbus-read, websocket in, coap request).
 - Parse payload, hvis nødvendigt:
   - Hvis data modtages som JSON string, brug en `json` node eller `function` node til parsing.
 
