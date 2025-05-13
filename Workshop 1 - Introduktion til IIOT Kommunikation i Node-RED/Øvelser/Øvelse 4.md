@@ -68,6 +68,17 @@ For at kunne gennemføre denne øvelse, skal du have følgende klar:
     **Installation på Windows/Linux/macOS:**
     - Download installer fra RabbitMQs officielle hjemmeside: [https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html)
     - Følg installationsvejledningen for dit operativsystem.
+   
+    Alternativt kan du hægte dig på en eksisterende datastrøm ved:
+    - (Server) HOST: `rabbitmq`
+    - (Server) PORT: `5672`
+    - (Server) Vhost: `/`
+    - (Server) User: `guest`
+    - (Server) Passwd: `guest`
+    - Type: `Topic`
+    - Exchange name: `distance`
+    - Routing key: `distance`
+    - Queue Type: `classic` 
 
     **Kontrol:**
     - Efter start kan du tilgå RabbitMQ Management UI på `http://localhost:15672`.
