@@ -88,4 +88,3 @@ Du kan nu integrere dette flow med sensorer, tidsplaner eller andre hændelser i
 
 ---
 
-Hvis du har brug for hjælp til at integrere dette med specifikke sensorer eller enheder, er du velkommen til at spørge!
