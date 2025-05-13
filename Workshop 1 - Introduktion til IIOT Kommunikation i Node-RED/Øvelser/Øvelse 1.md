@@ -24,6 +24,24 @@ Formålet med denne øvelse er at give de studerende en grundlæggende forståel
 - Skalerbar til tusindvis af enheder
 - Understøtter "Last Will and Testament" for fejlhåndtering
 
+**MQTT – QoS‑niveauer**
+- QoS 0 (At most once) – ingen bekræftelse; hurtigst, men kan miste beskeder.
+- QoS 1 (At least once) – én bekræftelse (PUBACK); beskeder kan duplikeres, men leveres mindst én gang.
+- QoS 2 (Exactly once) – fire‑trins handshake (PUBREC/PUBREL/PUBCOMP); sikrer præcis én levering; mest pålidelig, men tungest.
+
+**TLS kort**   
+Brug TLS (typisk port 8883) for at kryptere transporten, forhindre aflytning og autentificere både klient og broker via certifikater.
+
+**MQTT – Statusbeskeder (Birth / Close / Will)**
+- **Birth message** – sendes straks efter, at klienten har oprettet forbindelse; giver abonnenter besked om, at enheden nu er online.   
+- **Close message** – sendes af klienten lige før en kontrolleret/frivillig afbrydelse; fortæller, at enheden logger af på en planlagt måde.   
+- **Will message** – defineres under CONNECT; broker publicerer den, hvis klienten mister forbindelsen uventet; giver hurtig indikering af, at enheden er gået offline uplanlagt.
+
+
+
+**MQTT – Retained message**
+Retain‑flag – når en PUBLISH‑pakke har retain‑flaget sat, gemmer broker den seneste payload på emnet. Nye abonnenter modtager øjeblikkeligt denne besked, så de kender seneste tilstand uden at vente på næste opdatering.
+
 **Eksempler på brug:**
 - Fjernovervågning af energiforbrug
 - Live rapportering fra sensorer i produktionsanlæg
