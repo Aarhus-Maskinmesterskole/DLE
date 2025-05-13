@@ -12,7 +12,7 @@ Hver øvelse bygger ovenpå den forrige og er designet til at udvikle både tekn
 **Formål:**
 - At sikre, at dataopsamling ikke afhænger af én enkelt teknologi.
 - At træne opsætning af flows med flere samtidige datakilder.
-- At introducere kompleksitet i dataintegration fra f.eks. MQTT, Modbus, OPC UA, HTTP eller AMQP.
+- At introducere kompleksitet i dataintegration fra f.eks. MQTT, Modbus, CoAP eller AMQP.
 
 **Krav:**
 - Data skal hentes fra mindst to forskellige protokoller.
