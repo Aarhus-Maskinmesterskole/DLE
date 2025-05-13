@@ -5,52 +5,72 @@
 Formålet med denne øvelse er at give de studerende en grundlæggende forståelse af Modbus TCP/IP-protokollen, som stadig er en hjørnesten i mange industrielle anlæg. Fokus er på at opsætte en funktionel kommunikation mellem Node-RED og en Modbus TCP server, aflæse registre og håndtere data korrekt. Derudover introduceres metoder til fejlregistrering og driftssikring.
 
 ---
-## 📖 Teori (læs først)
+## 📖 Modbus TCP/IP – Teori og Function Codes
 
-**Hvad er Modbus TCP/IP?**
-- Modbus er en ældre kommunikationsprotokol, oprindeligt udviklet i 1979 af Modicon (nu Schneider Electric), specielt designet til industriel automatisering. Den blev hurtigt en industristandard pga. sin enkelhed og robusthed.
-- Modbus TCP/IP er en moderne version, hvor de oprindelige Modbus-protokolbeskeder transporteres over et Ethernet-netværk ved brug af TCP/IP som transportlag.
-- Dette muliggør kommunikation mellem industrielle enheder over standardnetværk uden behov for specialiseret hardware.
+### Hvad er Modbus TCP/IP?
 
-**Hvordan fungerer Modbus TCP/IP?**
-- En Modbus TCP klient (også kaldet master) initierer alle kommunikationer ved at sende forespørgsler til en Modbus TCP server (også kaldet slave).
-- Serveren besvarer hver forespørgsel med den efterspurgte data eller en fejlmeddelelse.
-- Der anvendes en veldefineret PDU (Protocol Data Unit), som pakkes ind i en TCP-ramme.
-- TCP sikrer, at data leveres korrekt og i den rigtige rækkefølge.
+Modbus er en af de ældste og mest udbredte protokoller i industriel automatisering (oprindeligt fra 1979, Modicon/Schneider Electric). **Modbus TCP/IP** er den moderne variant, hvor Modbus‑rammen pakkes i TCP/IP og transporteres over Ethernet, så man kan bruge standard‑netværksudstyr i stedet for specialiseret seriel hardware.
 
-**Grundbegreber:**
-- **Master (Client):** Den enhed, som aktivt sender forespørgsler. Eksempler: PLC, HMI, SCADA systemer.
-- **Slave (Server):** Den enhed, der venter på forespørgsler og leverer svar. Eksempler: sensorer, aktuatorer.
-- **Coils:** Binære (0/1) outputs, f.eks. tænd/sluk af en motor.
-- **Discrete Inputs:** Binære (0/1) inputs, f.eks. aflæsning af en endestopkontakt.
-- **Input Registers:** 16-bit read-only registre, typisk brugt til at aflæse målinger.
-- **Holding Registers:** 16-bit læse-/skrive-registre, anvendt til at sætte værdier som f.eks. setpoints.
+**Grundprincip**
+En **Modbus TCP‑klient** (master) initierer alle forespørgsler; en **Modbus TCP‑server** (slave) svarer. Hver udveksling består af en request/response‐PDU, som TCP sørger for leveres fejlfrit og i korrekt rækkefølge.
 
-**Datatransport og adressering:**
-- Modbus TCP anvender en adresseringsstruktur, hvor coils og registre identificeres med offset-adresser.
-- Typiske adresser:
-  - Coils: 00001-
-  - Discrete Inputs: 10001-
-  - Input Registers: 30001-
-  - Holding Registers: 40001-
-- Adresserne i beskeder er dog "0-based" i TCP (f.eks. 40001 i dokumentation svarer til adresse 0 i protokollen).
+| Begreb                | Forklaring                                       |
+| --------------------- | ------------------------------------------------ |
+| **Client/Master**     | Enhed der sender forespørgsler (PLC, HMI, SCADA) |
+| **Server/Slave**      | Enhed der svarer (sensor, aktuator, gateway)     |
+| **Coils**             | Binære outputs  (00001‑)                         |
+| **Discrete Inputs**   | Binære inputs   (10001‑)                         |
+| **Input Registers**   | 16‑bit read‑only registre (30001‑)               |
+| **Holding Registers** | 16‑bit read/write registre (40001‑)              |
 
-**Hvorfor bruge Modbus TCP/IP i IIOT?**
-- **Enkel implementering:** Kræver minimale ressourcer at implementere i enheder.
-- **Standardprotokol:** Støttes af stort set alle industrielle leverandører.
-- **Netværksintegration:** Muliggør nem integration med eksisterende IT-infrastruktur.
-- **Skalerbarhed:** Muliggør kommunikation mellem alt fra enkelte sensorer til komplekse SCADA-systemer.
-- **Kosteffektivitet:** Udnytter eksisterende Ethernet-hardware og kabling.
+> **Adresse‑note:** I dokumentation er adresser ofte 1‑baserede (40001), mens protokollen bruger 0‑baseret offset (så 40001 ⇒ 0 i PDU).
 
-**Begrænsninger ved Modbus TCP/IP:**
-- Begrænset sårbarhed over usikre netværk (ingen indbygget kryptering).
-- Simpel protokol uden avancerede funktioner som session management eller prioritering.
-- Høj belastning ved mange samtidige forbindelser sammenlignet med moderne protokoller som OPC UA.
+### Hvorfor bruge Modbus TCP/IP i IIoT?
 
-**Eksempler på brug:**
-- Overvågning af temperatur- og tryksensorer i store procesanlæg, hvor mange dataindsamlingspunkter skal koordineres over et lokalt netværk.
-- Fjernstyring af motorer, ventiler og andre aktuatorer i produktionsmiljøer via SCADA-systemer.
-- Integration af ældre udstyr med moderne cloud-platforme gennem gateways, der oversætter Modbus TCP data til nyere IIOT-protokoller som MQTT.
+* **Enkel implementering** og lav overhead
+* **Bred leverandør‑understøttelse** (de‑facto standard)
+* **Netværksintegration** med eksisterende IT‑infrastruktur
+* **Skalerbarhed** fra få sensorer til komplette SCADA‑systemer
+* **Kosteffektivitet** via standard Ethernet‑hardware
+
+**Begrænsninger**
+
+* Ingen indbygget kryptering / authentication
+* Ingen QoS eller prioritering
+* Kan belaste CPU/net ved mange samtidige forbindelser sammenlignet med nyere protokoller (OPC UA, MQTT)
+
+### Typiske anvendelser
+
+* Overvågning af temperatur‑ og tryksensorer i procesanlæg
+* Fjernstyring af motorer, ventiler og aktuatorer via SCADA
+* Gateway‑oversættelse til cloud (Modbus TCP → MQTT / OPC UA)
+
+---
+
+### 🛠️ Function Codes (FC) – Hurtigt overblik
+
+| FC (hex) | Navn                          | Beskrivelse kort                       | Adgang | Datatype        |
+| -------- | ----------------------------- | -------------------------------------- | ------ | --------------- |
+| **01**   | Read Coils                    | Læs status af multiple coils           | R      | Coils           |
+| **02**   | Read Discrete Inputs          | Læs status af multiple digitale inputs | R      | Discrete Inputs |
+| **03**   | Read Holding Registers        | Læs én eller flere holding‑registre    | R      | Holding Reg.    |
+| **04**   | Read Input Registers          | Læs én eller flere input‑registre      | R      | Input Reg.      |
+| **05**   | Write Single Coil             | Sæt/tøm én coil                        | W      | Coils           |
+| **06**   | Write Single Register         | Skriv én holding‑register (16‑bit)     | W      | Holding Reg.    |
+| **0F**   | Write Multiple Coils          | Skriv flere coils i én pakke           | W      | Coils           |
+| **10**   | Write Multiple Registers      | Skriv flere holding‑registre           | W      | Holding Reg.    |
+| **17**   | Read/Write Multiple Registers | Kombineret læs+skriv i samme telegram  | R/W    | Holding Reg.    |
+
+> **Tip:**
+> ‑ FC 0x2B/0x0E kan bruges til **diagnostic og identification** (Read Device Identification).
+> ‑ FC 0x08 tillader **diagnostic kommandoer**, f.eks. loopback‑test.
+
+### 📌 Hurtige tommelfingerregler
+
+* Brug **FC 03/06/10** ved styring af setpoints og konfigurationer (Holding Registers).
+* Brug **FC 01/02/05/0F** til binær on/off‑kontrol.
+* Sørg for korrekt byte‑order (Big‑Endian) og énhedskonvertering, især ved floating‑point data (ofte 32‑bit, kræver 2 registre).
+* Husk TCP‑timeout/retry‑strategi – Modbus har ingen indbygget keep‑alive.
 
 ---
 
@@ -59,13 +79,12 @@ Formålet med denne øvelse er at give de studerende en grundlæggende forståel
 For at kunne gennemføre denne øvelse, skal følgende være installeret og klar:
 
 - Node-RED installeret lokalt eller i Docker.
-- En Modbus TCP server installeret:
-  - Brug en simulator som **ModbusPal** eller en Docker-baseret Modbus server.
-  - IP-adresse typisk `127.0.0.1` og port `502` (standard).
+- Installer paletten `node-red-contrib-modbus`
+- Læs omkring opsætning af Modbus TCP server
+  - IP-adresse typisk `localhost` og port `502` (standard).
 
-- Node-RED Modbus noder installeret:
-  - Gå til "Manage Palette" > "Install".
-  - Installer `node-red-contrib-modbus`.
+Modbus TCP Serveren skal konfigureres for at det er muligt at hente data og sende data fra client.   
+Bemærkning: Det er muligt at modtage live data fra IP: `172.24.0.5`, PORT: `4999`. OBS! normalt er default PORT `502` men fordi i DLE anvendes docker så har hver maskine interne docker IP og PORT.
 
 ---
 
