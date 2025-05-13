@@ -13,6 +13,9 @@ Formålet med denne øvelse er at introducere de studerende til brugen af CoAP-p
 - Protokollen er baseret på en RESTful model svarende til HTTP, hvilket betyder, at den anvender metoder som **GET**, **POST**, **PUT** og **DELETE** for at interagere med ressourcer.
 - CoAP er optimeret til anvendelse i små enheder, der arbejder i netværk med lav energi og begrænset båndbredde, som det ofte ses i IIOT og smart home enheder.
 
+![image](https://github.com/user-attachments/assets/3ccc7b5d-5d4e-4f56-80e8-31473778c15d)
+
+
 **Hvordan fungerer CoAP i OSI-modellen?**
 - **Applikationslaget (Layer 7):** CoAP fungerer som applikationsprotokollen. Det tillader enheder at forespørge, opdatere og slette ressourcer ved at bruge en RESTful interface.
 - **Transportlaget (Layer 4):** CoAP anvender UDP som sin transportmekanisme, hvilket betyder at forbindelsen er "connectionless" og ikke garanterer pakkelevering. For at kompensere for dette har CoAP indbygget mekanismer til bekræftelse og retransmission.
