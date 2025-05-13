@@ -11,6 +11,9 @@ Formålet med denne øvelse er at give de studerende en grundlæggende forståel
 - MQTT (Message Queuing Telemetry Transport) er en ekstremt letvægtsprotokol udviklet til effektiv og pålidelig kommunikation i netværk med begrænset båndbredde og høje latensforhold.
 - Den anvender et **publish/subscribe**-mønster, hvilket betyder, at enheder ikke kommunikerer direkte, men via en central broker.
 
+![image](https://github.com/user-attachments/assets/9e72577e-fc30-4621-9797-f9d510beca9d)
+
+
 **Nøglekomponenter:**
 - **Broker:** Hovedserveren, der modtager beskeder fra publishers og distribuerer dem til subscribers.
 - **Client:** Enhver enhed, der enten sender (publisher) eller modtager (subscriber) beskeder.
@@ -32,15 +35,15 @@ Formålet med denne øvelse er at give de studerende en grundlæggende forståel
 
 For at kunne gennemføre denne øvelse, skal følgende software være installeret og køreklar:
 
-- Adgang til en Node Red på din PC eller i skyen
+- Adgang til en Node-RED på din PC eller i cloud
 - Læs mere om installation på egen PC i https://nodered.org/docs/getting-started/local
-- Adgang til MQTT broker
+- Adgang til MQTT broker på lokal maskine:
     - Installér **Mosquitto** lokalt:
     - Linux: `sudo apt install mosquitto mosquitto-clients`
     - Windows: Brug Mosquitto Windows installer fra Eclipse hjemmeside.
     - Docker: `docker run -it -p 1883:1883 eclipse-mosquitto`
 
-  - Alternativ: Brug en offentlig MQTT broker (eks. `test.mosquitto.org`).
+  - Alternativ: Brug en offentlig MQTT broker (eks. cloud `test.mosquitto.org`).
   - Studerende på AAMS har adgang til en fælles MQTT broker: 178.128.199.129:1883
 
 ---
