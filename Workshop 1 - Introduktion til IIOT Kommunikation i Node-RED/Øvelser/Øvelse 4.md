@@ -13,6 +13,8 @@ Formålet med denne øvelse er at introducere de studerende til anvendelsen af A
 - AMQP fungerer ved at decouplere producent (sender) og forbruger (modtager) af beskeder via en mellemliggende "broker", hvilket muliggør asynkron kommunikation.
 - Protokollen specificerer både netværksinteraktionen (wire format) og brokerens opførsel, hvilket sikrer fuld kompatibilitet på tværs af implementeringer.
 
+![image](https://github.com/user-attachments/assets/7b6a3ebb-8669-43d8-bfd4-58ca6bfa4b45)
+
 **Typiske komponenter i AMQP-systemer:**
 - **Producer:** Applikation eller enhed, der sender beskeder til en broker.
 - **Broker (f.eks. RabbitMQ):** Server der modtager beskeder fra producenter, gemmer dem sikkert og videresender dem til de rette forbrugere via køer og exchanges.
