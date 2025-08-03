@@ -12,6 +12,8 @@ Vi fokuserer på **praktisk læring gennem hands-on arbejde**. Workshopsene bygg
 - I tager ansvar for jeres egen læring.
 - I spørger, hvis I støder på udfordringer - vi er her for at hjælpe jer videre, ikke for at give svarene.
 
+## 💡 DLE forløbsplan 
+
 | Nr. | Workshop-titel                            | Hovedfokus og aktiviteter                                                                                                                              |
 | --- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1   | **Kom godt i gang med IIoT og Node-RED**  | Hvad er IIoT? Log ind, lav dit første flow, send og modtag data med MQTT.                                                                              |
