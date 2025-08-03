@@ -1,105 +1,77 @@
-# 📊 Workshop 2: Øvelsesoversigt med Formål
+## 📊 Workshop 2: Øvelsesoversigt med Formål
 
-## 📚 Introduktion
+📚 **Introduktion**
 
-Denne README beskriver de enkelte øvelser i Workshop 2, hvor vi fokuserer på **driftssikring, datahåndtering, beslutningsstøtte og visualisering** i IIOT-systemer.  
-Hver øvelse bygger ovenpå den forrige og er designet til at udvikle både tekniske og analytiske færdigheder.
+Denne README beskriver øvelserne i Workshop 2, hvor vi arbejder målrettet med datasikkerhed og validering i IIoT-systemer.
+Du vil udvikle praktiske færdigheder inden for sanity-check, plausibility tests, watchdog-mekanismer og håndtering af timestamp/metadata.
 
 ---
 
-## 📋 Øvelse 1: Dataopsamling fra mindst 2 forskellige protokoller
+### 📋 Øvelse 1: Tilføj timestamp og metadata til data
 
 **Formål:**
-- At sikre, at dataopsamling ikke afhænger af én enkelt teknologi.
-- At træne opsætning af flows med flere samtidige datakilder.
-- At introducere kompleksitet i dataintegration fra f.eks. MQTT, Modbus, CoAP eller AMQP.
+
+* At sikre, at alle indkommende data er forsynet med tidsstempel og nødvendig metadata.
+* At understøtte sporbarhed og efterfølgende fejlanalyse.
+* At opnå ensartethed i datahåndteringen.
 
 **Krav:**
-- Data skal hentes fra mindst to forskellige protokoller.
-- Alle datapakker skal indeholde struktureret metadata.
+
+* Alle data skal forsynes med timestamp, unit, source og status.
+* Metadata skal tilføjes direkte i flowet, så det følger hver datapakke.
 
 ---
 
-## 📋 Øvelse 2: Sanity-checks og avancerede Watchdog flows
+### 📋 Øvelse 2: Implementér sanity-check og plausibility test
 
 **Formål:**
-- At beskytte systemet mod forkerte data og tab af datastrømme.
-- At implementere intelligente sanity-checks baseret på dynamiske grænser.
-- At bygge watchdog-mekanismer, der overvåger både datastrømmenes tilstedeværelse og kvalitet.
+
+* At beskytte systemet mod ugyldige eller usandsynlige data.
+* At kunne fange fejlmålinger eller defekte sensorer i realtid.
+* At arbejde med dynamiske (let-ændrede) grænseværdier uden flow-deploy.
 
 **Krav:**
-- Sanity-checks på hver datastrøm.
-- Separate watchdogs pr. sensor/stream.
+
+* Opsæt sanity-check og plausibility test for hver datastrøm.
+* Grænseværdier skal kunne opdateres uden at flowet skal deployes på ny.
+* Alle “failed checks” skal markeres tydeligt i data eller fejllog.
 
 ---
 
-## 📋 Øvelse 3: Logging til CSV og SQLite samtidigt
+### 📋 Øvelse 3: Opsæt watchdog for datastrøm
 
 **Formål:**
-- At sikre redundans i datalagring.
-- At give erfaring med både filbaseret logging (CSV) og databasebaseret logging (SQLite).
-- At strukturere data i standardformater velegnet til efterfølgende analyse.
+
+* At overvåge, om datastrømme er aktive og opdateres som forventet.
+* At detektere tab af forbindelse, “døde” sensorer eller uregelmæssig opdatering.
+* At reagere hurtigt på manglende data.
 
 **Krav:**
-- Alle valide målinger skal lagres både i CSV-fil og SQLite database.
-- Metadata skal logges sammen med målinger.
+
+* Implementér watchdog-mekanismer for hver datastrøm/sensor.
+* Watchdog skal kunne indikere både OK, warning og error.
+* Tab af data skal logges separat med timestamp og sensor-id.
 
 ---
 
-## 📋 Øvelse 4: Implementering af separat fejllog
+### 📋 Øvelse 4: Visualisér status og fejl på dashboard
 
 **Formål:**
-- At kunne adskille normal drift og fejlregistrering.
-- At gøre fejlanalyse nemmere og mere effektiv.
-- At sikre, at fejl ikke overses i store mængder data.
+
+* At gøre status, fejl og driftstilstand tydeligt for brugeren i realtid.
+* At visualisere resultater fra sanity-checks, plausibility tests og watchdogs med letforståelige indikatorer (fx grøn/gul/rød).
+* At give et hurtigt overblik over hele systemets sundhed.
 
 **Krav:**
-- Fejl skal registreres i en separat CSV eller database.
-- Fejl skal registreres med timestamp, fejltype og kilde.
+
+* Dashboard skal vise status for hver datastrøm (OK, advarsel, fejl).
+* Fejltyper og tidspunkter skal kunne vises/udtrækkes for analyse.
+* Visualisering skal opdateres automatisk og være let at aflæse.
 
 ---
 
-## 📋 Øvelse 5: Grafisk dashboard med dynamiske statusfarver
+📢 **Husk:**
+Øvelserne bygger ovenpå hinanden – en god timestamp- og sanity-check-struktur danner grundlag for resten!
+Vi forventer grundighed og aktiv refleksion over, hvordan jeres løsninger kan bruges til **robust og driftssikker IIoT**.
 
-**Formål:**
-- At præsentere data på en brugervenlig måde.
-- At understøtte visuel beslutningstagning ved hjælp af statusfarver (grøn, gul, rød).
-- At synliggøre systemets driftstilstand i realtid.
-
-**Krav:**
-- Live visualisering af målinger og systemstatus.
-- Dynamiske farver baseret på data og fejlsituationer.
-
----
-
-## 📋 Øvelse 6: Beslutningsstøtte via aggregerede data
-
-**Formål:**
-- At analysere trends og lave beslutningsgrundlag baseret på historiske målinger.
-- At udløse handlinger ikke kun baseret på enkeltdatapunkter, men på gennemsnit, maksimum eller minimum værdier over tid.
-
-**Krav:**
-- Implementer flows, der analyserer aggregerede værdier.
-- Beslutningsflow skal reagere på f.eks. gennemsnitsværdier over en periode.
-
----
-
-## 📋 Øvelse 7: Alarmflows med forskellig alvorlighedsgrad (Warning/Kritisk)
-
-**Formål:**
-- At skelne mellem alvorlige og mindre alvorlige hændelser.
-- At forbedre prioriteringen i driftsovervågningen.
-- At skabe automatiske reaktioner på forskellige alarmniveauer.
-
-**Krav:**
-- Implementer både warning- og critical-alarmflows.
-- Visualiser alarmstatus på dashboard.
-
----
-
-# 📢 Husk
-Alle øvelser bygger ovenpå hinanden — grundlaget fra de første opgaver skal bruges i de sidste.  
-Vi forventer høj kvalitet, selvstændighed og grundig dokumentation!
-
-Vi glæder os til at se jeres arbejde!
-
+Vi glæder os til at se, hvordan I løser opgaverne!
