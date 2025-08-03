@@ -1,10 +1,11 @@
-## 📊 Workshop 5: Lav dit eget lille dashboard
+## 📊 Workshop 5: Modbus TCP ↔ MQTT gateway
 
 ### 🌟 **Formål**
 
-* At lære, hvordan du bygger et simpelt og overskueligt **dashboard** i Node-RED.
-* At kunne vise status, målinger og evt. alarmer på en visuel måde, som alle kan forstå.
-* At forstå hvorfor dashboards er vigtige i IIoT – både for overblik, fejlfinding og samarbejde.
+* At **læse OG skrive** til en inverter via Modbus TCP.
+* At koble en relæstation (fx Raspberry Pi) sammen via MQTT – både for at modtage styrekommando og rapportere status.
+* At bygge en gateway, så data og styring kan gå frit mellem inverter, relæstation og bruger (dashboard).
+* At forstå to-vejs kommunikation på tværs af industrielle netværk.
 
 ---
 
@@ -12,83 +13,78 @@
 
 Efter workshoppen kan du:
 
-* Bygge og tilpasse et Node-RED-dashboard med status, målinger og farver.
-* Visualisere data fra egne og andres flows i realtid.
-* Bruge dashboardet til at opdage fejl, alarmer og statusændringer.
-* Forklare for andre, hvordan dashboardet virker, og hvorfor det giver overblik.
+* Opsætte både **Modbus read** og **Modbus write** til inverter (målinger, status OG styring).
+* Lave to-vejs gateway mellem Modbus TCP og MQTT.
+* Visualisere, sende og modtage status og styring fra både inverter og relæstation på dashboard.
+* Forklare fordele og risici ved at kunne styre anlæg eksternt – og hvordan du kan lave “sikker” gateway.
 
 ---
 
-### 📚 **Introduktion**
+## 🏗️ **Scenarie**
 
-Et dashboard er en “forside” til dine data:
-Her kan du og andre **hurtigt se**, hvad der sker – om alt kører OK, eller der er problemer.
-Det kan være tal, grafer, knapper eller indikatorer (fx grøn/rød) – alt sammen uden at kigge ind i flows eller kode.
+* **Inverter (Modbus TCP):**
 
----
+  * Kan levere målinger/status (fx hastighed, strøm, fejl)
+  * Kan modtage styringskommandoer (fx start/stop, setpunkt)
+* **Relæstation (Raspberry Pi):**
 
-## 📋 Øvelse 1: Byg et dashboard til én måling
+  * Kan modtage styrekommando via MQTT (fra dashboard, cloud el.lign.)
+  * Kan sende relæstatus/feedback tilbage via MQTT
+* **Node-RED:**
 
-**Formål:**
-
-* At vise fx temperatur, tryk eller beskeder på dashboardet.
-
-**Krav:**
-
-* Lav en “ui\_gauge”, “ui\_text” eller “ui\_chart”, som viser en af dine målinger live.
+  * Forbinder det hele (Modbus TCP og MQTT)
+  * Bygger gateway og visualisering
 
 ---
 
-## 📋 Øvelse 2: Tilføj statusindikator (OK/fejl) med farver
+## 📋 Øvelser
 
-**Formål:**
+### **Øvelse 1: Læs målinger fra inverter (Modbus read)**
 
-* At kunne se om alt er OK, eller om der er en fejl, direkte på dashboardet.
-
-**Krav:**
-
-* Brug fx “ui\_led”, “ui\_text” eller “ui\_template” til at vise grøn (OK) eller rød (fejl).
+* Brug “modbus read” til at hente status/målinger fra inverteren.
+* Visualisér på dashboard og/eller send videre som MQTT-besked (`station/inverter/status`).
 
 ---
 
-## 📋 Øvelse 3: Lav flere visninger på samme dashboard
+### **Øvelse 2: Skriv styring til inverter (Modbus write)**
 
-**Formål:**
-
-* At samle flere målinger/statusser på ét sted for bedre overblik.
-
-**Krav:**
-
-* Tilføj mindst én ekstra visning (fx både temperatur og alarmstatus).
+* Brug “mqtt in” (fx på topic `station/inverter/cmd`) til at modtage kommandoer.
+* Forbind til “modbus write” – fx for at sende start/stop/setpunkt til inverteren fra dashboard eller cloud.
 
 ---
 
-## 📋 Øvelse 4: Tilføj en alarm eller advarsel
+### **Øvelse 3: Relæstation – modtag og udfør kommandoer via MQTT**
 
-**Formål:**
-
-* At vise en tydelig alarm på dashboardet, hvis noget overskrider en grænse.
-
-**Krav:**
-
-* Lav fx et tekstfelt eller en rød indikator, der aktiveres hvis en måling går over/under en værdi.
+* Brug “mqtt in” på Raspberry Pi til at modtage fx `station/relay/cmd` og tænde/slukke et GPIO-relæ (eller simulering).
+* Relæstation sender tilbage status som MQTT-besked (`station/relay/status`).
 
 ---
 
-## 📋 Øvelse 5: Del dit dashboard med andre
+### **Øvelse 4: Visualiser og styr det hele fra dashboard**
 
-**Formål:**
-
-* At andre kan se dit dashboard – fx på deres computer, tablet eller mobil.
-
-**Krav:**
-
-* Giv adressen til dashboardet videre (fx `http://[din-ip]:1880/ui`) og tjek at andre kan se det live.
+* Lav knapper/inputs på dashboard til at sende styrekommandoer (både til inverter og relæ).
+* Vis status fra både inverter (målinger, fejl) og relæstation (on/off).
+* Prøv at styre begge dele og se status opdateres i realtid.
 
 ---
 
-### 📢 **Husk:**
+### **Øvelse 5: To-vejs gateway og “echo”**
 
-* Et godt dashboard er **enkelt**, let at forstå og viser det vigtigste først.
-* Brug farver og tydelige tekster – det gør det nemmere at spotte fejl eller ændringer.
-* Spørg underviseren, hvis du vil prøve flere widgets eller visuelle tricks!
+* Prøv at sende en kommando fra dashboard til inverter → relæstation (eller omvendt) og tjek, at feedback/status kører begge veje.
+* Demonstrér at ændringer i inverter/relæ kan ses over MQTT af andre systemer.
+
+---
+
+### **Øvelse 6: Refleksion**
+
+* Hvad kan du bruge sådan en gateway til i virkeligheden?
+* Hvorfor er to-vejs styring både en fordel og en risiko?
+* Hvad ville du sikre, hvis systemet blev brugt i “den virkelige verden”?
+
+---
+
+### **Noter**
+
+* **Begge retninger:** Modbus TCP <--> MQTT <--> Modbus TCP
+  (både læsning og skrivning via inverter, og status/styring på relæstation)
+* **Alt kan simuleres** hvis du ikke har adgang til rigtig hardware!
