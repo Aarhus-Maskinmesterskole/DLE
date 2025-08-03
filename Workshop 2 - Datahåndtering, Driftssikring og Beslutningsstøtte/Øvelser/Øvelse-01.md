@@ -1,7 +1,3 @@
-Ja! Her får du en **komplet beskrivelse af Øvelse 1** med formål, baggrund, step-by-step og konkrete krav – klar til brug i README, opgaveark eller LMS.
-
----
-
 ## 📋 Øvelse 1: Tilføj timestamp og metadata til data
 
 ### **Formål**
@@ -72,7 +68,3 @@ I industrielle systemer er det afgørende, at al data kan spores og sættes i ko
 ### **Når du er færdig**
 
 * Gå videre til næste øvelse, hvor du skal validere dine data med sanity-check og plausibility test!
-
----
-
-Sig til, hvis du ønsker samme format for Øvelse 2 – eller ønsker denne omskrevet til ultrakort “huskeliste”!
