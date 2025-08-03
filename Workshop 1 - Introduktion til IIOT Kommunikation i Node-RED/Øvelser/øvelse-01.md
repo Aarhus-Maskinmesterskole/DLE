@@ -32,7 +32,3 @@ At sikre, at du har adgang til Node-RED-platformen, hvor resten af øvelserne sk
 ### **Når du er klar:**
 
 Gå videre til næste øvelse, hvor du skal lave dit første MQTT-flow!
-
----
-
-Sig til, hvis du vil have næste øvelse (Trin 2) på samme måde.
