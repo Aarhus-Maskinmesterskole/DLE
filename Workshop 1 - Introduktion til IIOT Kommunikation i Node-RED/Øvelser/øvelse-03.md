@@ -52,7 +52,3 @@ At prøve at sende og modtage MQTT-beskeder mellem dig og en medstuderende ved h
 ### **Når du er klar:**
 
 Gå videre til næste øvelse, hvor du skal abonnere på en ekstern MQTT-datastrøm!
-
----
-
-Sig til, hvis du vil have Trin 4 (ekstern datastrøm), eller hvis noget skal justeres!
