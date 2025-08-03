@@ -1,65 +1,90 @@
-# 📊 Workshop 4: Interoperabilitet og Datamodellering
+## 📊 Workshop 4: Samarbejd og del data mellem systemer
 
-## 📚 Introduktion
-I Workshop 4 dykker vi ned i den næste udviklingsfase af IIOT: **interoperabilitet** og **datamodellering**. Hvor tidligere workshops fokuserede på kommunikation og sikkerhed, handler dette forløb om at skabe **systemer der forstår hinanden** – både teknisk og semantisk.
 
-I industrielle miljøer skal mange forskellige platforme, sensorer og systemer kunne tale sammen. Det kræver ikke bare, at data kan sendes, men også at data **giver mening** – på tværs af fabrikker, leverandører og software.
+### 🌟 **Formål**
 
-I denne workshop arbejder vi med:
-- **OPC UA** – en moderne industriel kommunikationsstandard, som understøtter datamodeller, adgangskontrol og klient/server-arkitektur. Her bygger vi vores egen OPC UA-server og forbinder en klient, der læser strukturerede tags.
-- **MQTT Sparkplug B** – en udvidelse til MQTT, der tilføjer semantik, struktur, metadata og standardiserede payloads. Du lærer at opsætte en Sparkplug-kompatibel publisher og subscriber.
-- **Datamodellering** – hvordan man opbygger meningsfulde og konsistente datastrukturer, der gør systemet mere skalérbart og forståeligt. Vi arbejder med metadata, datatyper og navngivning.
-
-Workshoppen kombinerer teori og praksis og klæder dig på til at arbejde med avanceret dataudveksling i industrielle og distribuerede IIOT-løsninger.
+* At opleve, hvordan man **deler og modtager data** på tværs af flere brugere eller systemer ved hjælp af MQTT.
+* At forstå, hvordan data kan flyde mellem forskellige flows, og hvad det betyder for åbenhed, samarbejde og datasikkerhed.
+* At kunne diskutere, hvornår det er smart at dele data – og hvornår man skal være forsigtig.
 
 ---
 
-## 🎯 Formål
-- At forstå og anvende principperne bag interoperabilitet i IIOT.
-- At kunne anvende moderne standarder som OPC UA og Sparkplug B.
-- At lære hvordan semantik og strukturerede payloads øger værdi og forståelse i datadeling.
-- At kunne forbinde flere systemer og gøre data genanvendeligt på tværs af platforme.
+### 👩‍💻 **Kompetencer du opbygger**
+
+Efter workshoppen kan du:
+
+* **Sende og modtage beskeder** via fælles MQTT-topic i Node-RED.
+* **Bygge flows, der kommunikerer med andres flows** (fx chat, fælles måling, opslagstavle).
+* **Visualisere data fra flere kilder** på et dashboard.
+* **Reflektere over datasikkerhed** – hvem kan læse/skrive på et åbent topic?
+* **Samarbejde om data** og forklare, hvad åbne og lukkede datastrømme betyder i praksis.
+
+
+### 📋 Øvelse 1: Send data til et fælles topic
+
+**Formål:**
+
+* At sende en besked til et fælles MQTT-topic, som andre kan modtage.
+* At forstå, at data på et åbent topic kan læses af alle med adgang.
+
+**Krav:**
+
+* Du skal kunne sende fx temperatur, navn eller besked til et aftalt topic (fx `klasse/test`).
 
 ---
 
-## 🧠 Kompetencer
-Når workshoppen er gennemført, forventes det at du:
-- Kan opsætte og afprøve OPC UA kommunikation mellem server og klient.
-- Kan konfigurere og analysere MQTT Sparkplug B-forbindelser.
-- Forstår forskellen på rå data og semantisk berigede data.
-- Kan designe og beskrive simple datamodeller med metadata, enhedsoplysninger og hierarkier.
-- Har begyndende indsigt i standardisering, topic-struktur og payload-design til større løsninger.
+### 📋 Øvelse 2: Modtag data fra en medstuderende
+
+**Formål:**
+
+* At modtage beskeder fra andre via det fælles topic.
+* At se, hvordan flere flows kan “lytte” på det samme topic.
+
+**Krav:**
+
+* Dit flow skal kunne vise beskeder fra andre på samme topic i debug eller dashboard.
 
 ---
 
-## 📋 Struktur og Øvelser
-| Øvelse | Titel |
-|--------|-------|
-| 1 | Introduktion til interoperabilitet og semantik |
-| 2 | OPC UA: Opsætning af server og læsning af tags |
-| 3 | MQTT Sparkplug B: Opsætning og publish/subscribe |
-| 4 | Design af en simpel datamodel med metadata |
-| 5 | Sammenlign OPC UA, MQTT og Sparkplug B |
-| 6 | Datavisualisering fra interoperable systemer |
-| 7 | Dokumentation og refleksion |
+### 📋 Øvelse 3: Chat med MQTT
 
-Øvelserne er opbygget progressivt. Først sikres forståelse af begreberne, dernæst implementeres to interoperabilitetsstandarder, og til sidst anvendes de i kombination til datamodellering og visualisering.
+**Formål:**
+
+* At prøve en simpel “chat”, hvor I skriver beskeder til hinanden via MQTT.
+
+**Krav:**
+
+* Du skal kunne skrive en besked, som en medstuderende ser i deres Node-RED (og omvendt).
 
 ---
 
-## 📦 Aflevering
-Du skal dokumentere dit arbejde løbende og samle det i en portfolio. Denne bør indeholde:
-- Skærmbilleder fra både OPC UA og Sparkplug B-forbindelser.
-- Eksempler på designet datamodel (fx JSON/UML/skitse).
-- Refleksion over hvilke teknologier der passer til hvilke opgaver.
-- En sammenlignende vurdering: Fordele og ulemper ved protokollerne i praksis.
+### 📋 Øvelse 4: Lav et lille “fælles dashboard”
 
-Du kan aflevere som PDF, OneNote, Markdown eller printet dokument. Du må gerne samarbejde, men refleksionsdelen skal være din egen.
+**Formål:**
+
+* At vise beskeder fra flere brugere på et fælles dashboard (fx liste eller tekstfelt).
+
+**Krav:**
+
+* Dit dashboard skal opdatere sig, når der kommer nye beskeder fra andre.
 
 ---
 
-## 📢 Husk
-Workshoppen bygger på den kommunikation og sikkerhed, du lærte i Workshop 2 og 3. Derfor forventes det, at du har styr på MQTT, TLS og strukturering af flow. Her går vi videre med **mening** og **model** – det vil sige hvordan data gøres forståeligt, genkendeligt og nyttigt i større systemer.
+### 📋 Øvelse 5: Refleksion og sikkerhed
 
-Vi glæder os til at se jeres strukturerede og interoperable IIOT-løsninger!
+**Formål:**
 
+* At tænke over, hvem der kan læse data på et åbent topic.
+* At forklare, hvornår det er smart at dele data – og hvornår det ikke er!
+
+**Krav:**
+
+* Skriv eller fortæl kort, hvilke data du ville dele åbent, og hvilke du helst ville beskytte.
+
+---
+
+### 📢 Husk:
+
+* **Et åbent MQTT-topic er som en fælles opslagstavle:** Alle med adgang kan læse og skrive!
+* Det er smart til fx beskeder, chat eller fælles sensordata – men ikke til følsomme oplysninger.
+* Spørg underviseren, hvis du er i tvivl om brugen af topic eller deling af data.
