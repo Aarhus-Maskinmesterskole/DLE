@@ -1,87 +1,90 @@
-# 🔐 Transport- og Applikationslagets Sikkerhed (MITM)
+## 📊 Workshop 3: Øvelsesoversigt med Formål
 
-## 👋 Velkommen til Workshop 3
+📚 **Introduktion**
 
-Denne workshop handler om **sikkerhed i IIOT-datastrømme**. Du kommer til at arbejde med, hvordan man beskytter forbindelser mod aflytning og manipulation. Det gør vi ved at simulere et **Man-in-the-Middle (MITM)** angreb, hvor en tredje part kan opsnappe og ændre dine data, hvis trafikken ikke er sikret.
-
-Du skal bruge et færdigt Python-script med grafisk brugerflade (GUI), som du kører på din computer. Du skal **ikke udvikle kode**, men blot følge instruktionerne og observere hvad der sker. Derefter skal du analysere, hvordan TLS og adgangskontrol kan forhindre det samme angreb.
-
----
-
-## 🌟 Formål
-- Se med egne øjne hvordan datastrømme kan aflures og manipuleres.
-- Forstå hvordan man kan beskytte forbindelser med TLS og brugervalidering.
-- Træne i at dokumentere og analysere sikkerhedshåndtering i IIOT-systemer.
+Denne README beskriver øvelserne i Workshop 3, hvor vi arbejder med datasikkerhed og beskyttelse af IIOT-data.
+Du lærer at forstå, opbygge og demonstrere forskellen mellem usikre (HTTP) og sikre (HTTPS) datastrømme, og hvordan det påvirker muligheden for afluring.
 
 ---
 
-## 🤮 Øvelser du skal igennem
+### 📋 Øvelse 1: Introduktion til HTTP og datasikkerhed
 
-| Øvelse | Fokus |
-|:------:|:------|
-| 1 | Forstå IIOT-sikkerhedstrusler (sniffing, spoofing, MITM) |
-| 2 | Kør færdigt Python-script og start GUI |
-| 3 | Indtast IP’er og vælg interface – start MITM-angreb |
-| 4 | Observer opsnappede beskeder i realtid (GUI-visning) |
-| 5 | Afprøv hvordan beskeder kunne manipuleres |
-| 6 | Stop angrebet og analyser hvad du så |
-| 7 | Implementér TLS og login i din MQTT-kommunikation |
-| 8 | Gennemfør ny test og sammenlign effekten |
-| 9 | Dokumentér og optag video/screenshot |
-| 10 | Reflektér: Hvordan ville du sikre et produktionsmiljø? |
+**Formål:**
+
+* At forstå hvad HTTP er, og hvordan data sendes åbent.
+* At få et overblik over typiske sikkerhedsproblemer ved usikret datakommunikation.
+
+**Krav:**
+
+* Du skal kunne forklare kort, hvordan HTTP fungerer, og hvorfor det ikke er sikkert.
 
 ---
 
-## 🔄 Sådan bruger du værktøjet
+### 📋 Øvelse 2: Byg en simpel HTTP-service i Node-RED
 
-Du skal nu arbejde med det udleverede Python-script `mitm.py`, som åbner en simpel brugerflade.
+**Formål:**
 
-Følg disse trin:
+* At oprette en simpel HTTP-endpoint i Node-RED til at modtage data.
 
-1. Start scriptet.
-2. Indtast IP-adresser for din “target” og “gateway” (f.eks. dig selv og din router).
-3. Vælg det netværksinterface du er på (WiFi eller kabel).
-4. Tryk på **“Start Attack”** – og følg med i hvilke beskeder der opsnappes i vinduet.
-5. Tryk **“Stop Attack”** for at afslutte.
+**Krav:**
 
-I de næste øvelser skal du arbejde videre med det du observerer, og teste hvordan sikkerhed ændrer på dataadgangen.
+* Du skal kunne sende og modtage beskeder via HTTP (fx fra browser eller Postman).
 
 ---
 
-## 🤝 Din rolle
-- Du arbejder aktivt med at opsætte, analysere og beskytte en datastrøm.
-- Du følger en færdig løsning og forholder dig kritisk til resultaterne.
-- Du dokumenterer dine observationer og reflekterer over sikkerhedsaspekter.
+### 📋 Øvelse 3: Demonstrér afluring af data med HTTP
+
+**Formål:**
+
+* At vise at alle kan “se” og aflure beskeder, når HTTP bruges.
+* At forstå hvad det betyder for fortrolighed og sikkerhed.
+
+**Krav:**
+
+* Du skal kunne vise at data kan læses af andre (forklaret eller vist af underviser).
 
 ---
 
-## 🔍 Du skal aflevere
-Efter workshoppen skal du:
+### 📋 Øvelse 4: Skift til HTTPS og gør kommunikationen sikker
 
-- Dokumentere din opsætning med video eller screenshots (GUI, angreb, evt. beskyttet test).
-- Notere dine observationer under og efter angrebet.
-- Besvare disse refleksionsspørgsmål:
-  1. Hvilke typer data kunne du opsnappe?
-  2. Hvad ville en angriber kunne udrette med disse data?
-  3. Hvordan ændrede det sig, da du aktiverede TLS og login?
-  4. Hvad ville du anbefale, hvis dette var et rigtigt produktionsmiljø?
+**Formål:**
 
-Afleveres som en del af jeres portfolio.
+* At lære hvordan HTTPS beskytter datastrømmen via kryptering.
+* At forstå, hvordan sikret kommunikation ser ud i praksis.
 
----
+**Krav:**
 
-## 🚀 Når du er færdig, skal du kunne:
-- Udføre og forstå et MITM-angreb på en lokal MQTT-forbindelse.
-- Forstå hvilke sårbarheder der findes i usikret netværkskommunikation.
-- Beskytte en forbindelse med TLS og adgangskontrol.
-- Forklare dine resultater og anbefale sikkerhedsforbedringer.
+* Du skal kunne sende/aflevere samme besked over HTTPS.
+* Du skal kunne forklare hvorfor data nu ikke kan aflures.
 
 ---
 
-## 📆 Vurdering
-- Workshoppen indgår i din gruppeportfolio.
-- Du bedømmes på dokumentation og refleksion – ikke på hvor mange pakker du fanger.
-- Bedømmelsen er: **Godkendt / Ikke godkendt**.
+### 📋 Øvelse 5: Visualiser sikkerhedsstatus på dashboard
 
-Held og lykke med workshoppen – og husk: det du lærer her, kan forhindre store fejl i fremtiden! 🚀
+**Formål:**
 
+* At lave et dashboard, der viser om forbindelsen er sikker eller ej (fx rød/grøn indikator).
+
+**Krav:**
+
+* Dashboardet skal tydeligt vise status for sikkerhed (HTTP = usikker, HTTPS = sikker).
+
+---
+
+### 📋 Øvelse 6: Sammenlign, dokumentér og reflektér
+
+**Formål:**
+
+* At dokumentere forskellen på HTTP og HTTPS med billeder/skærmbilleder.
+* At reflektere over, hvorfor datasikkerhed er vigtig – også i IIOT.
+
+**Krav:**
+
+* Tag screenshots af begge løsninger og dashboard.
+* Skriv kort, hvornår og hvorfor man bør vælge HTTPS fremfor HTTP.
+
+---
+
+📢 **Husk:**
+Øvelserne bygger ovenpå hinanden – forståelse og løsninger fra de første opgaver skal bruges i de sidste.
+Vi forventer, at du kan forklare og vise forskellen på usikret og sikret data, også til nogen uden teknisk baggrund.
