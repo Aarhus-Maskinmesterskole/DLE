@@ -27,13 +27,7 @@ Vi fokuserer på **praktisk læring gennem hands-on arbejde**. Workshopsene bygg
 | 9   | **Afsluttende miniprojekt**               | Byg et lille IIoT-system, hvor du selv vælger, hvad du vil måle og vise (fx temperatur, lys, tænd/sluk, alarm). Lav et dashboard, der samler det hele. |
 | 10  | **Vis og forklar dit system**             | Præsenter din løsning for de andre. Vis dashboard, fortæl om de flows du har bygget og hvad du har lært om sikkerhed, alarmer og data.                 |
 
-
-
-Hver workshop afsluttes med:
-- Praktiske opgaver.
-- En **video**, hvor I demonstrerer, hvad I har sat op og hvordan det virker.
-- En **PowerPoint-præsentation**, hvor I beskriver teknologivalg, fordele/ulemper og refleksioner.
-- Portfolio-opsamling og dokumentation.
+Hver dag skal i dokumentere jeres flow og reflektioner i en **github** under dag01, dag02 osv.
 
 ## 🧑‍💻 Jeres rolle som studerende
 - **Arbejdende:** I skal bygge, teste, fejlfinde og forbedre jeres løsninger.
