@@ -1,65 +1,49 @@
-## Workshop 1: Introduktion til IIoT‑kommunikation i Node‑RED (MQTT · CoAP · AMQP · Modbus TCP)
+## Workshop 1: Kom i gang med MQTT & Node-RED
 
-### 🌟 Formål
+### 🌟 **Mål**
 
-Workshoppen introducerer de studerende til grundlæggende IIoT‑kommunikation og praktisk opsætning af fire udbredte industrielle protokoller: **MQTT, CoAP, AMQP og Modbus TCP**. Fokus er på at forstå kommunikationsarkitektur, konfigurere forbindelserne i Node‑RED, vurdere deres styrker og svagheder samt dokumentere arbejdet professionelt.
+Du lærer at sende og modtage beskeder med MQTT i Node-RED – inkl. centrale MQTT-funktioner som last will, QoS, retain, TLS og **integration med en fysisk IO-Link master som MQTT publisher**.
 
-Målet er, at de studerende ikke kun kan konfigurere systemer, men også vælge passende teknologier ud fra krav til drift, vedligeholdelse og datasikkerhed.
+---
 
-### 🔄 Struktur for workshoppen
+### 🚦 **Trin-for-trin overskrifter**
 
-1. **Introduktion** – IIoT vs IT, arkitektur og protokoloversigt
-2. **Gennemgang af hver IIoT‑protokol** – MQTT · Modbus TCP · CoAP · AMQP
-3. **Praktisk arbejde i Node‑RED** – opsætning af de fire protokoller
-4. **Optagelse af video** – demonstration af opsætning
-5. **Udarbejdelse af PowerPoint** – sammenligning af protokollerne
-6. \*\*Afleveringsinstruktioner og opsamling
+1. Log ind på Node-RED
+2. MQTT til dig selv
+3. MQTT til/fra medstuderende
+4. MQTT ekstern datastrøm
+5. Retain-flag
+6. QoS (Quality of Service)
+7. Last Will & Testament
+8. TLS/kryptering
+9. Opsæt fysisk IO-Link master som MQTT publisher
+10. Payload-format
 
-### 🗂️ Mappe‑ og filstruktur (aflevering)
+---
 
-```
-Workshop1_IIoT_kommunikation/
-├── Video/
-│   └── iiot_protocol_setup_demo.mp4
-├── PowerPoint/
-│   └── iiot_protocol_comparison.pptx
-├── Node-RED_Flows/
-│   ├── mqtt_flow.json
-│   ├── modbus_flow.json
-│   ├── coap_flow.json
-│   └── amqp_flow.json
-└── Dokumentation/
-    └── opsummering.md
-```
+**Ekstraopgaver for de hurtige:**
 
-### 👩‍💻 Kompetencer efter workshoppen
+* CoAP
+* AMQP
+* Modbus TCP
+* Chat/dashboard/simple automations
+* Sammenlign protokoller
 
-Efter forløbet forventes den studerende at kunne:
+---
 
-* Beskrive forskellene mellem **MQTT, Modbus TCP, CoAP og AMQP**.
-* Opsætte og konfigurere alle fire protokoller i Node‑RED.
-* Forklare fordele og ulemper ved hver protokol ift. drift, vedligeholdelse og datasikkerhed.
-* Dokumentere teknisk opsætning gennem video og en skriftlig PowerPoint‑præsentation.
-* Identificere hvor driftssikkerhed, skalering og sikkerhed spiller en rolle i valg af protokol.
+### ✅ **Når du er klar**
 
-### 📅 Hvad skal afleveres
+* Kan du sende/modtage MQTT-beskeder i Node-RED.
+* Kan du modtage data fra fysisk IO-Link master via MQTT.
+* Kender du centrale MQTT-features (QoS, retain, last will, TLS).
 
-1. **Video (MP4)**
+---
 
-   * Kort forklaring af hver protokol.
-   * Live demonstration af opsætning i Node‑RED.
-2. **PowerPoint‑præsentation (PPTX)**
+### 🔄 **Fælles opsamling**
 
-   * Fordele og ulemper for hver protokol.
-   * Samlet vurdering af, hvilken protokol der er bedst til driftssikre IIoT‑systemer.
-3. **Node‑RED‑flows (JSON)**
+Vi samler op:
+**Hvilke features/flows gav mening? Hvordan oplevede du integrationen med IO-Link master og MQTT?**
 
-   * `mqtt_flow.json`, `modbus_flow.json`, `coap_flow.json`, `amqp_flow.json`
-4. **Kort opsummering (Markdown eller PDF)**
+---
 
-   * Hvordan gik opsætningen?
-   * Hvilke problemer blev mødt, og hvordan blev de løst?
-
-### 🎉 Klar til at komme i gang!
-
-Workshoppen afrundes med opsamling og en teaser til næste workshop, hvor vi arbejder videre med real‑world datastrømme og avancerede datasikkerhedsaspekter.
+*Ekstra protokoller er stadig ekstraopgaver til de hurtige.*
