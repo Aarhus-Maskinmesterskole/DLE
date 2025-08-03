@@ -12,19 +12,19 @@ Vi fokuserer på **praktisk læring gennem hands-on arbejde**. Workshopsene bygg
 - I tager ansvar for jeres egen læring.
 - I spørger, hvis I støder på udfordringer - vi er her for at hjælpe jer videre, ikke for at give svarene.
 
-## 📆 Strukturen for workshops
-| Nr. | Workshop                                                                 | Fokus                                                                 |
-|-----|--------------------------------------------------------------------------|------------------------------------------------------------------------|
-| 1   | Workshop 1 - Introduktion til IIOT Kommunikation i Node-RED             | Opsætning og forståelse af IIOT-kommunikation via MQTT, Modbus, OPC UA, m.fl. |
-| 2   | Workshop 2 - Datahåndtering, Driftsikring og Beslutningsstøtte          | Datastrømskontrol, logging, fejlhåndtering og beslutningslogik        |
-| 3   | Workshop 3 - Sikkerhed på transport og applikationslaget                | Kryptering, certifikater og MITM-simulering med ARP spoofing          |
-| 4   | Workshop 4 - Interoperabilitet og datamodellering                       | Standarder som OPC UA og MQTT Sparkplug B samt interoperabel arkitektur |
-| 5   | Workshop 5 - Unified Namespace og Emnearkitektur i IIOT                 | Strukturering af emner, metadata og dokumentation i UNS               |
-| 6   | Workshop 6 - Edge Computing og Beslutningstagen tæt på datakilden       | Lokal beslutning, anomali-detektion, robusthed og præsentation        |
-| 7   | Workshop 7 - Data Governance, Metadata og Interoperabilitet i UNS       | Validering, semantik, metric properties og dokumenteret datamodel     |
-| 8   | Workshop 8 - Cloud Integration og Dataflow til IoT-platforme            | Integration med cloud-tjenester (Azure IoT Hub, AWS, Google Cloud IoT)|
-| 9   | Workshop 9 - Avanceret beslutningsstøtte og analyse                     | Real-time algoritmer, predictive maintenance og optimering             |
-| 10  | Workshop 10 - Systemintegration og IIOT-arkitektur                      | Samling af SCADA, MES og ERP i én konsistent, professionel løsning    |
+| Nr. | Workshop-titel                            | Hovedfokus og aktiviteter                                                                                                                              |
+| --- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **Kom godt i gang med IIoT og Node-RED**  | Hvad er IIoT? Log ind, lav dit første flow, send og modtag data med MQTT.                                                                              |
+| 2   | **Gør dine data til at stole på!**        | Tilføj tid (timestamp) til dine målinger. Lav simple sanity-checks og vis hvis noget er “unormalt”. Lær hvad en watchdog er.                           |
+| 3   | **Når data skal være sikre**              | Se forskellen på åben og sikret kommunikation med HTTP og HTTPS. Lav et dashboard, der viser om forbindelsen er sikker.                                |
+| 4   | **Samarbejd og del data mellem systemer** | Del data med hinanden via fælles MQTT-topic. Prøv at sende og læse beskeder på tværs. Forstå at andre kan “hægte sig på” dit data.                     |
+| 5   | **Lav dit eget lille dashboard**          | Byg et simpelt dashboard, der viser status (fx temperatur, OK/fejl), med farver eller ikoner.                                                          |
+| 6   | **Gem dine målinger**                     | Prøv at logge data i en fil (CSV) eller et simpelt regneark. Kig på dine gamle målinger og find fejl eller mønstre.                                    |
+| 7   | **Lav simple alarmer og advarsler**       | Sæt grænser for hvad der er “farligt” – vis alarm på dashboard, hvis noget går galt.                                                                   |
+| 8   | **Del data med skyen (valgfrit/intro)**   | Se et eksempel på hvordan man kan sende data til en cloud-tjeneste. Fokus på idé og demo, ikke kodning.                                                |
+| 9   | **Afsluttende miniprojekt**               | Byg et lille IIoT-system, hvor du selv vælger, hvad du vil måle og vise (fx temperatur, lys, tænd/sluk, alarm). Lav et dashboard, der samler det hele. |
+| 10  | **Vis og forklar dit system**             | Præsenter din løsning for de andre. Vis dashboard, fortæl om de flows du har bygget og hvad du har lært om sikkerhed, alarmer og data.                 |
+
 
 
 Hver workshop afsluttes med:
