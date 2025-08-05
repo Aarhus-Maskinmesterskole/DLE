@@ -1,68 +1,72 @@
-# ☁️ Workshop 8: Cloud Integration og Dataflow til IoT-platforme
+## 📊 Workshop 8: Del data med skyen (valgfrit/intro)
 
-## 📚 Introduktion
+### 🌟 **Formål**
 
-I denne workshop lærer du at forbinde dit IIOT-setup til en cloud-platform, så du kan overføre, visualisere og analysere data centralt – uanset hvor din hardware befinder sig. Vi fokuserer på sikker integration med cloud-tjenester som **Azure IoT Hub**, **AWS IoT Core** og **Google Cloud IoT**. Målet er, at du forstår hele vejen fra en lokal sensor til skyen – og hvordan man sikrer datastrømmen undervejs.
-
-Cloud integration muliggør:
-
-* Central overvågning og beslutningsstøtte
-* Skalerbarhed og tværorganisatorisk adgang
-* Backup og analyse af historiske data
-* Integration med dashboards, AI og forretningssystemer
+* At opleve, hvordan dine IIoT-data kan **deles eller vises i skyen** – fx via en cloud-tjeneste eller et eksternt dashboard.
+* At forstå grundidéen bag cloud-løsninger: Data kan tilgås overalt, på tværs af enheder og geografiske steder.
+* At se en demo eller prøve et simpelt flow, hvor data sendes ud af lokalt netværk.
 
 ---
 
-## 🎯 Formål
+### 👩‍💻 **Kompetencer du opbygger**
 
-* At forstå, hvordan IIOT-enheder kommunikerer med cloud-platforme
-* At opsætte en MQTT-baseret forbindelse til mindst én cloud-tjeneste
-* At sikre overførslen vha. **TLS**, **adgangsnøgler** og **enhedsidentitet**
-* At designe dataflows, der overfører relevante datapunkter uden støj
-* At analysere cloud-modtagne data og vurdere forbindelsens stabilitet og sikkerhed
+Efter workshoppen kan du:
 
----
-
-## 🧠 Kompetencer
-
-Når workshoppen er gennemført, forventes det, at du:
-
-* Kan forbinde Node-RED til en ekstern cloud MQTT-broker (Azure, AWS, Google, etc.)
-* Kan formatere payloads, så de matcher cloud-platformens forventede struktur
-* Forstår sikkerhedslagene i cloud-forbindelser (TLS, token, device ID, etc.)
-* Kan overvåge forbindelsen og identificere potentielle problemer (disconnect, throttling, etc.)
-* Kan forklare forskellen på edge-lokationer og cloud-lag
+* Forklare, hvad det betyder at sende data “til skyen”.
+* Kende eksempler på populære cloud-platforme (fx Ubidots, ThingsBoard, Blynk, Google Sheets, Adafruit IO, etc.).
+* Prøve eller se, hvordan Node-RED kan sende data til en cloud-tjeneste (fx via MQTT, HTTP eller integration-node).
+* Forstå fordele og udfordringer ved at dele data uden for lokalt netværk (fx adgang, sikkerhed, samarbejde).
 
 ---
 
-## 🧩 Øvelser (eksempler)
+### 📚 **Introduktion**
 
-| Øvelse | Titel                                                |
-| ------ | ---------------------------------------------------- |
-| 1      | Opsæt forbindelse til cloud via MQTT med TLS         |
-| 2      | Formatér payload korrekt til cloud-platformens skema |
-| 3      | Anvend cloud-Dashboard til live visualisering        |
-| 4      | Log fejl og forbindelsesstatus lokalt ved disconnect |
-| 5      | Begræns data og send kun relevante værdier           |
-| 6      | Dokumentér din integration og cloud-arkitektur       |
+Du har nu prøvet at måle, vise og logge data lokalt.
+I dag kigger vi på, hvordan du **kan dele eller se dine målinger på internettet**, så du fx kan tjekke status hjemmefra, på farten eller dele med andre.
 
 ---
 
-## 📦 Aflevering
+## 📋 Øvelse 1: Se eller prøv en cloud-demo
 
-* Flow (.json) der viser cloud-integration
-* Screenshot af cloud-dashboard, hvor dine data vises
-* Kort dokumentation (markdown eller slides) med:
+**Formål:**
 
-  * Beskrivelse af sikkerhedslag
-  * Struktur af dine topics/payloads
-  * Brugte credentials (maskerede) og protokolvalg
-* Refleksion over forskelle mellem lokal og cloud databehandling
+* At opleve, hvordan et lokalt flow kan sende data til skyen.
+
+**Krav:**
+
+* Følg underviserens demo eller vejledning:
+
+  * Fx sende temperatur eller status til en tjeneste som Ubidots, ThingsBoard, Adafruit IO eller Google Sheets.
 
 ---
 
-## 📢 Husk
+## 📋 Øvelse 2: Opret en konto på en cloud-platform (valgfrit)
 
-Cloud er ikke en magisk løsning – det er en **udvidelse** af din arkitektur. For at få det fulde udbytte skal du tænke i **struktur, sikkerhed og formål**: Hvilke data skal sendes? Hvor ofte? Hvem har adgang? Hvad gør du ved disconnects? Hvad sker der, når cloud-tjenesten opdateres?
+**Formål:**
 
-En god cloud-integration giver både overblik, fleksibilitet og professionel skalerbarhed. Nu bygger vi bro mellem lokal edge og global cloud.
+* At prøve at lave egen bruger på en cloud-platform og se, hvordan et dashboard ser ud.
+
+**Krav:**
+
+* Opret bruger, følg “kom godt i gang”-vejledning, og prøv at modtage en demo-datapakke (evt. fra underviser eller fælles flow).
+
+---
+
+## 📋 Øvelse 3: Tænk over fordele og ulemper ved skyen
+
+**Formål:**
+
+* At reflektere over, hvornår det er smart at sende data til skyen – og hvornår det ikke er.
+
+**Krav:**
+
+* Skriv kort om, hvornår cloud-løsning er en fordel (fx adgang hjemmefra, backup, deling med flere).
+* Skriv også en mulig ulempe (fx hvis internettet går ned, eller data ikke må komme ud af huset).
+
+---
+
+### 📢 **Husk:**
+
+* “Skyen” betyder bare, at data ligger på en server, du kan tilgå uanset hvor du er.
+* Du behøver ikke kunne kode cloud-integration selv endnu – fokus er på at forstå og prøve mulighederne.
+* Sikkerhed og privatliv er vigtigt: Tænk altid over, hvad du sender ud!
