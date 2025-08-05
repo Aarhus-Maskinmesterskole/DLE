@@ -1,10 +1,10 @@
-## 📊 Workshop 8: Del data med skyen (valgfrit/intro)
+## 📊 Workshop 9: Afsluttende miniprojekt – byg dit eget IIoT-system
 
 ### 🌟 **Formål**
 
-* At opleve, hvordan dine IIoT-data kan **deles eller vises i skyen** – fx via en cloud-tjeneste eller et eksternt dashboard.
-* At forstå grundidéen bag cloud-løsninger: Data kan tilgås overalt, på tværs af enheder og geografiske steder.
-* At se en demo eller prøve et simpelt flow, hvor data sendes ud af lokalt netværk.
+* At samle alle de færdigheder du har lært: måling, visning, logning, alarmer, deling m.m.
+* At bygge et lille IIoT-system, du selv bestemmer indholdet af – og være kreativ!
+* At træne i at planlægge, bygge, teste og dokumentere en hel løsning fra start til slut.
 
 ---
 
@@ -12,61 +12,60 @@
 
 Efter workshoppen kan du:
 
-* Forklare, hvad det betyder at sende data “til skyen”.
-* Kende eksempler på populære cloud-platforme (fx Ubidots, ThingsBoard, Blynk, Google Sheets, Adafruit IO, etc.).
-* Prøve eller se, hvordan Node-RED kan sende data til en cloud-tjeneste (fx via MQTT, HTTP eller integration-node).
-* Forstå fordele og udfordringer ved at dele data uden for lokalt netværk (fx adgang, sikkerhed, samarbejde).
+* Udvælge relevante sensorer, målinger og funktioner til en konkret opgave.
+* Bygge et Node-RED-flow, der måler, viser, logger og evt. alarmerer – efter eget valg.
+* Bruge dashboardet til at give overblik, og evt. logge eller sende data videre.
+* Dokumentere dit arbejde med tekst, billeder og evt. video.
+* Præsentere og forklare din løsning for andre – både teknik og idé.
 
 ---
 
 ### 📚 **Introduktion**
 
-Du har nu prøvet at måle, vise og logge data lokalt.
-I dag kigger vi på, hvordan du **kan dele eller se dine målinger på internettet**, så du fx kan tjekke status hjemmefra, på farten eller dele med andre.
+Nu skal du prøve kræfter med at bygge dit **eget mini-IIoT-system**!
+Du bestemmer selv temaet: Det kan fx være et simpelt overvågningssystem til et rum, et demo-setup med “virtuel” temperatur/lys, eller et lille alarm-anlæg med visualisering.
 
 ---
 
-## 📋 Øvelse 1: Se eller prøv en cloud-demo
+## 📋 Opgave: Byg, test og dokumentér dit eget system
 
-**Formål:**
+**Eksempler på systemer:**
 
-* At opleve, hvordan et lokalt flow kan sende data til skyen.
-
-**Krav:**
-
-* Følg underviserens demo eller vejledning:
-
-  * Fx sende temperatur eller status til en tjeneste som Ubidots, ThingsBoard, Adafruit IO eller Google Sheets.
+* Overvågning af temperatur, fugt eller lys i et rum.
+* Et lille alarm-system med sensor, indikator og log.
+* Visualisering af maskindrift (fx ON/OFF, status, fejl).
+* Automatisk advarsel hvis noget er galt (fx for høj/lav værdi).
+* Live-dashboard med flere målinger.
 
 ---
 
-## 📋 Øvelse 2: Opret en konto på en cloud-platform (valgfrit)
+### **Trin-for-trin (vejledende)**
 
-**Formål:**
+1. **Planlæg dit system**
 
-* At prøve at lave egen bruger på en cloud-platform og se, hvordan et dashboard ser ud.
+   * Hvad vil du måle, vise, logge og evt. alarmere på?
+   * Lav evt. en lille skitse eller beskrivelse.
+2. **Byg dit flow i Node-RED**
 
-**Krav:**
+   * Brug de noder du kender: inject, sensor, MQTT, dashboard, file, alarm osv.
+3. **Lav dashboard og log**
 
-* Opret bruger, følg “kom godt i gang”-vejledning, og prøv at modtage en demo-datapakke (evt. fra underviser eller fælles flow).
+   * Visualiser dine målinger, status og alarmer på dashboardet.
+   * Gem målinger i fil (CSV) eller log.
+4. **Test og forbedr**
 
----
+   * Prøv systemet – virker det? Kan det forbedres? Juster evt. flows og grænser.
+5. **Dokumentér**
 
-## 📋 Øvelse 3: Tænk over fordele og ulemper ved skyen
+   * Tag billeder/screenshots af flow og dashboard.
+   * Skriv kort om, hvad systemet kan, og hvordan det virker.
+6. **(Valgfrit) Præsenter for andre**
 
-**Formål:**
-
-* At reflektere over, hvornår det er smart at sende data til skyen – og hvornår det ikke er.
-
-**Krav:**
-
-* Skriv kort om, hvornår cloud-løsning er en fordel (fx adgang hjemmefra, backup, deling med flere).
-* Skriv også en mulig ulempe (fx hvis internettet går ned, eller data ikke må komme ud af huset).
+   * Forklar, vis og demonstrér din løsning for klassen, underviser eller til en video.
 
 ---
 
 ### 📢 **Husk:**
 
-* “Skyen” betyder bare, at data ligger på en server, du kan tilgå uanset hvor du er.
-* Du behøver ikke kunne kode cloud-integration selv endnu – fokus er på at forstå og prøve mulighederne.
-* Sikkerhed og privatliv er vigtigt: Tænk altid over, hvad du sender ud!
+* Du behøver ikke kunne det hele perfekt – det vigtigste er at prøve selv, forklare din løsning og lære af processen!
+* Spørg underviseren, hvis du har brug for hjælp til flows, dashboard eller logning.
