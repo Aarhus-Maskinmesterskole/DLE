@@ -1,72 +1,93 @@
-# 📊 Workshop 7: Data Governance, Metadata og Interoperabilitet i UNS
+## 📊 Workshop 7: Lav simple alarmer og advarsler
 
-## 📚 Introduktion
-I denne workshop bygger vi oven på det, du har lært om **Unified Namespace (UNS)**, edge computing og dataintegration – men nu med fokus på den **semantiske og dokumenterbare kvalitet af data**. Et godt teknisk system er ikke nok – det skal også være **forståeligt, søgbart og interoperabelt**. 
+### 🌟 **Formål**
 
-Workshop 7 introducerer dig til kernebegreberne inden for **data governance**, og hvordan man anvender metadata og struktur til at gøre IIOT-systemer lettere at forstå, fejlsøge og genanvende. 
-
-Vi arbejder med:
-- Brug af **metadata** og **beskrivende payloads**
-- Dokumentation og standardisering af emnestrukturer
-- Sparkplug B’s semantiske muligheder, herunder **metric properties**, NBIRTH/DDATA osv.
-- **Discovery** og selvbeskrivende emner
-
-Et velopbygget UNS med god semantik skaber grobund for både automatisering, menneskelig forståelse og system-til-system kommunikation. Det er ikke nok at “have adgang til data” – man skal også **forstå konteksten og betydningen**.
+* At lære, hvordan du sætter **grænser for dine målinger** og viser alarmer eller advarsler, når noget er “farligt” eller unormalt.
+* At gøre fejlsituationer **meget tydelige** på dit dashboard eller i din log.
+* At forstå, hvordan alarmer hjælper med at forebygge skader og fejl – både i industrien og i hjemmet.
 
 ---
 
-## 🎯 Formål
-- At kunne tilføje **meningsfuld metadata** i emnestrukturer og payloads
-- At strukturere emner med **konsekvente typer, enheder og formål**
-- At bruge Sparkplug B’s egenskaber til at gøre data selvforklarende
-- At kunne anvende og forklare **principperne for interoperabilitet**
-- At skabe **dokumentation** der kan forstås af både mennesker og systemer
-- At validere og analysere **datakvalitet og governance-strukturer**
+### 👩‍💻 **Kompetencer du opbygger**
+
+Efter workshoppen kan du:
+
+* Sætte en øvre og/eller nedre grænse for målinger (fx temperatur, tryk).
+* Få Node-RED til at vise en alarm/advarsel, når værdien går udenfor de tilladte grænser.
+* Logge alarmhændelser i en fil (fx CSV) eller sende besked via dashboard.
+* Forklare for andre, hvorfor alarmer er vigtige og hvordan de kan forebygge større problemer.
 
 ---
 
-## 🧠 Kompetencer
-Efter workshoppen forventes du at kunne:
-- Integrere metadata i MQTT-payload og emnestruktur
-- Dokumentere UNS på en visuel, teknisk og semantisk måde
-- Udforme Sparkplug B-opsætninger med metric-properties og birth messages
-- Opsætte topic-discovery og observere dynamisk netværksstruktur
-- Argumentere for vigtigheden af standardisering i IIOT
-- Analysere fejltilstande og beskrive, hvordan metadata kan forhindre misforståelser
+### 📚 **Introduktion**
+
+Nu går du fra bare at **logge data** til at **handle på det**, når noget ikke er som det skal være.
+Du lærer at sætte grænser og vise alarm eller advarsel med det samme – fx hvis temperaturen bliver for høj, eller trykket for lavt.
 
 ---
 
-## 📋 Struktur og Øvelser
-| Øvelse | Titel |
-|--------|-------|
-| 1 | Metadata og semantik i UNS og payloads |
-| 2 | Udvidelse af UNS med typer, enheder og beskrivelser |
-| 3 | Sparkplug B og metric-properties i praksis |
-| 4 | Automatisk topic-discovery og dokumentation |
-| 5 | Simulering af fejltilstande og datakvalitet |
-| 6 | Validér, dokumentér og formidl din UNS-opsætning |
+## 📋 Øvelse 1: Sæt grænser for din måling
 
-Øvelserne lægger op til både teknisk arbejde og metodisk refleksion. Du kommer til at arbejde med dokumentation, visualisering, edge flows og semantik i ét sammenhængende forløb.
+**Formål:**
+
+* At vælge fornuftige øvre/nedre grænser for én af dine målinger (fx temperatur).
+
+**Krav:**
+
+* Brug en function-node eller “rbe”-node til at sammenligne værdien med dine grænser (fx under 10 eller over 30 = alarm).
 
 ---
 
-## 📦 Aflevering
-Du skal ved afslutningen kunne aflevere:
-- Et `.json` Node-RED-flow der anvender metadata og dokumenteret UNS
-- En eller flere screenshots af dashboards med visning af metadata/semantik
-- En grafisk strukturtegning eller emneoversigt med forklaringer
-- En kort dokumentation (tekst eller slides), der beskriver:
-  - Hvorfor og hvordan du har struktureret dine emner
-  - Hvilke metadata du har brugt og hvorfor
-  - Hvordan du har arbejdet med Sparkplug B eller andet semantisk format
-- En refleksion over vigtigheden af standardisering, interoperabilitet og datadokumentation i virkelige systemer
+## 📋 Øvelse 2: Vis alarm på dashboard
+
+**Formål:**
+
+* At gøre alarmen synlig for alle – fx med rød tekst, ikon eller blinkende felt.
+
+**Krav:**
+
+* Brug “ui\_text”, “ui\_led”, “ui\_template” eller lignende widget i dashboardet til at vise alarmen/advarslen tydeligt.
 
 ---
 
-## 📢 Husk
-Et stærkt IIOT-system er ikke kun robust og hurtigt – det er også **gennemsigtigt, forståeligt og dokumenteret**. Denne workshop viser, hvordan semantik og metadata skaber værdi på tværs af fagligheder: teknikere, ingeniører, analytikere og systemudviklere.
+## 📋 Øvelse 3: Log alarmhændelser i en fil
 
-En dokumenteret UNS med god metadata er forskellen på et kaotisk datasystem og et velfungerende, skalerbart og fremtidssikret netværk.
+**Formål:**
 
-Vi glæder os til at se, hvordan du tager dine UNS-færdigheder til næste niveau!
+* At kunne gemme, hvornår og hvorfor en alarm blev udløst.
 
+**Krav:**
+
+* Brug “file”-node til at logge tidspunkt, måling, alarmtype osv. i en CSV-fil, hver gang alarmen går.
+
+---
+
+## 📋 Øvelse 4: Ekstra (valgfrit): Send advarsel som besked
+
+**Formål:**
+
+* At øve dig i at sende alarmbesked ud til bruger (fx som email, Telegram eller anden besked).
+
+**Krav:**
+
+* Sæt flow op så en besked sendes, hvis en alarm aktiveres (brug fx “email”- eller “telegram”-node).
+
+---
+
+## 📋 Øvelse 5: Refleksion
+
+**Formål:**
+
+* At overveje, hvorfor alarmer er vigtige – og hvad der kan ske, hvis man ikke opdager problemer i tide.
+
+**Krav:**
+
+* Skriv kort om, hvilke situationer der kræver alarm/advarsel, og hvordan det kan hjælpe i virkeligheden.
+
+---
+
+### 📢 **Husk:**
+
+* Alarmer gør det nemmere at spotte fejl – før det bliver dyrt eller farligt!
+* Grænser kan altid justeres – prøv dig frem og se, hvad der giver mening for netop dit system.
+* Du kan kombinere alarmer med logning fra dag 6, så du altid kan finde tilbage til, hvad der skete.
