@@ -1,66 +1,62 @@
-# Workshop 1: Kom i gang med MQTT & Node-RED
+# Workshop 1: Kom i gang med Node-RED
 
 ## 🌟 **Formål**
-
-Formålet med workshoppen er, at du hurtigt og praktisk lærer at bruge MQTT i Node-RED til at sende og modtage data – både lokalt, mellem brugere og fra fysisk IO-Link master. Du får forståelse for centrale MQTT-funktioner (QoS, retain, last will, TLS), og du oplever, hvordan IIoT-enheder integreres i et moderne, digitalt automationsmiljø.
+Formålet med workshoppen er, at du hurtigt og praktisk lærer at bruge Node-RED, og får styr på de mest basale noder og funktioner.
 
 ---
 
 ## 👩‍💻 **Kompetencer efter workshoppen**
-
 Efter workshoppen forventes du at kunne:
 
 * **Logge ind og arbejde i Node-RED på en delt cloud-løsning.**
-* **Opsætte og teste MQTT-kommunikation i Node-RED** – både til dig selv, til andre, og til eksterne datastrømme.
-* **Forstå og anvende centrale MQTT-funktioner:**
-
-  * QoS
-  * Retain
-  * Last Will & Testament
-  * TLS/kryptering
-* **Modtage og visualisere data fra fysisk IO-Link master via MQTT.**
-* **Vurdere, hvor og hvorfor disse teknologier bruges i IIoT og automation.**
+* **Forstå og anvende de mest basale noder i Node-RED:**
+  * Inject
+  * Debug
+  * Function
+  * Change
+  * Switch
+  * Template
+  * Dashboard (output)
+* **Bygge simple flows, der kan modtage, behandle og vise data.**
+* **Visualisere data i dashboard og debug-vindue.**
+* **Forstå, hvordan Node-RED kan bruges til automation og integration.**
 
 ---
 
 ### 🚦 **Trin-for-trin overskrifter**
 
 1. Log ind på Node-RED
-2. MQTT til dig selv
-3. MQTT til/fra medstuderende
-4. MQTT ekstern datastrøm
-5. Retain-flag
-6. QoS (Quality of Service)
-7. Last Will & Testament
-8. TLS/kryptering
-9. Opsæt fysisk IO-Link master som MQTT publisher
-10. Payload-format
+2. Opret dit første flow med Inject og Debug
+3. Brug Function-noden til at behandle data
+4. Brug Change og Switch til at styre flowet
+5. Visualiser data med Dashboard-noder
+6. Eksperimentér med Template og andre basale noder
+7. Gem og deploy dine flows
 
 ---
 
 **Ekstraopgaver for de hurtige:**
 
-* CoAP
-* AMQP
-* Modbus TCP
-* Chat/dashboard/simple automations
-* Sammenlign protokoller
+* Brug input fra slider, knap eller tekstfelt i dashboard
+* Lav en simpel automation (fx tænd/sluk logik)
+* Kombinér flere noder til et større flow
+* Udforsk integration med eksterne API'er eller filsystem
 
 ---
 
 ### ✅ **Når du er klar**
 
-* Kan du sende/modtage MQTT-beskeder i Node-RED.
-* Kan du modtage data fra fysisk IO-Link master via MQTT.
-* Kender du centrale MQTT-features (QoS, retain, last will, TLS).
+* Kan du bygge og deploye simple flows i Node-RED
+* Kan du bruge de mest basale noder til at modtage, behandle og vise data
+* Forstår du, hvordan Node-RED kan bruges til automation og visualisering
 
 ---
 
 ### 🔄 **Fælles opsamling**
 
 Vi samler op:
-**Hvilke features/flows gav mening? Hvordan oplevede du integrationen med IO-Link master og MQTT?**
+**Hvilke noder og flows gav mest mening? Hvordan oplevede du at bygge og visualisere data i Node-RED?**
 
 ---
 
-*Ekstra protokoller er stadig ekstraopgaver til de hurtige.*
+*Ekstra protokoller og avancerede integrationer er stadig ekstraopgaver til de hurtige.*
