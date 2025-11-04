@@ -57,15 +57,38 @@ Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-
 
 ---
 
+## Forbind til skolens MQTT broker
+1. Indsæt en MQTT-in node.
+   <img width="3447" height="1722" alt="image" src="https://github.com/user-attachments/assets/6b21b173-70c7-47c9-8f09-3b47a1af0335" />
+2. Dobbelt klik på MQTT-in node.
+   <img width="3450" height="1727" alt="image" src="https://github.com/user-attachments/assets/260d59f8-4394-4598-9109-e727eb821cda" />
+3. Tryk på **+**
+   <img width="3442" height="1727" alt="image" src="https://github.com/user-attachments/assets/7225e674-e923-4ece-aa77-acbded263737" />
+4. Indsæt følgende og tryk *Add*
+   - **Server:** 142.93.135.2
+   - **Port:** 1883
+   <img width="3450" height="1725" alt="image" src="https://github.com/user-attachments/assets/e6205d78-7284-44fa-a284-720916f3e25b" />
+5. Indsæt `#` i topic og tryk *Done*
+   <img width="3447" height="1735" alt="image" src="https://github.com/user-attachments/assets/9f4c3c49-d023-4bbc-bac8-02c778df72a3" />
+6. Indsæt Debug node og forbind til MQTT-in node
+   <img width="3445" height="1715" alt="image" src="https://github.com/user-attachments/assets/1d016086-1526-4024-b25b-c3c0f2502920" />
+7. Tryk Deploy og bemærk det data som vælder ind i debug vinduet
+   <img width="3447" height="1730" alt="image" src="https://github.com/user-attachments/assets/0bbb1359-8192-4031-8fdb-06217d48471c" />
+
+
+---
+
 ## 2️⃣ Parse og Brug IO-Link Data
 **Opgave 2:**
 - IO-Link data sendes ofte som JSON. Parse dataen og vis fx alle IO-Link masterens sensor data i Dashboard.
 
 **Step-by-step:**
 1. Tilføj en JSON-node efter din MQTT-in node.
-2. Tilslut JSON-node til en Debug-node for at se det parse-de objekt.
-3. Tilslut JSON-node til en Dashboard-node (fx tekst eller gauge) for at vise værdien.
-4. Deploy flowet.
+   <img width="3445" height="1720" alt="image" src="https://github.com/user-attachments/assets/d1690b9e-b962-4272-9dad-d389e65a9b48" />
+2. Ændre topic i MQTT-in node til det topic i indstillede i IO-Link AL1350
+3. Tilslut JSON-node til en Debug-node for at se det parse-de objekt.
+5. Tilslut JSON-node til en Dashboard-node (fx tekst eller gauge) for at vise værdien.
+6. Deploy flowet.
 
 ---
 
