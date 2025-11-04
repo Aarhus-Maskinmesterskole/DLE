@@ -57,7 +57,9 @@ Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-
 
 ---
 
-## Forbind til skolens MQTT broker
+## 2️⃣ Forbind til skolens MQTT broker
+**Opgave 2:**
+
 1. Indsæt en MQTT-in node.
    <img width="3447" height="1722" alt="image" src="https://github.com/user-attachments/assets/6b21b173-70c7-47c9-8f09-3b47a1af0335" />
 2. Dobbelt klik på MQTT-in node.
@@ -78,26 +80,41 @@ Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-
 
 ---
 
-## 2️⃣ Parse og Brug IO-Link Data
-**Opgave 2:**
+## 3️⃣ Parse og Brug IO-Link Data
+**Opgave 3:**
 - IO-Link data sendes ofte som JSON. Parse dataen og vis fx alle IO-Link masterens sensor data i Dashboard.
 
 **Step-by-step:**
-1. Tilføj en JSON-node efter din MQTT-in node.
-   <img width="3445" height="1720" alt="image" src="https://github.com/user-attachments/assets/d1690b9e-b962-4272-9dad-d389e65a9b48" />
-2. Ændre topic i MQTT-in node til det topic i indstillede i IO-Link AL1350
-3. Tilslut JSON-node til en Debug-node for at se det parse-de objekt.
-5. Tilslut JSON-node til en Dashboard-node (fx tekst eller gauge) for at vise værdien.
+1. Tilføj en Function node efter din MQTT-in node.
+   <img width="3447" height="1725" alt="image" src="https://github.com/user-attachments/assets/be463255-4ec5-40fe-85fe-b7749be3a25e" />
+2. Ændre topic i MQTT-in node til det topic i indstillede i IO-Link AL1350 fx `dle/gr1/distance`.
+3. Tilslut Function node til en Debug node og Dashboard-node (fx tekst eller gauge) for at vise værdien.
+   <img width="3450" height="1720" alt="image" src="https://github.com/user-attachments/assets/fcbd73b5-e57e-4587-a08a-ff98077ee708" />
+4. Indsæt følgende i Function node
+   ```javascript
+   var data = {
+    Distance : Number(msg.payload)
+   }
+   msg.payload = data
+   return msg;
+   ```
+   <img width="3450" height="1725" alt="image" src="https://github.com/user-attachments/assets/4c9a1756-5771-47fb-a49e-847139cfa903" />
+5. Dobbelt klik `Gauge` og indsæt som følgende
+   <img width="3442" height="1717" alt="image" src="https://github.com/user-attachments/assets/e648a673-3a46-4f25-bfae-b9b68997dcba" />
 6. Deploy flowet.
+   <img width="3442" height="1727" alt="image" src="https://github.com/user-attachments/assets/4f731184-54da-46f9-a4d1-a35892f3fe2a" />
+7. Gå til Web-UI og se jeres data i jeres `gauge`
+    <img width="3445" height="1922" alt="image" src="https://github.com/user-attachments/assets/62cc164d-90d2-4283-988d-8b114b7add44" />
 
 ---
 
-## 3️⃣ Metadata og Status Information
-**Opgave 3:**
+## 4️⃣ Metadata og Status Information
+**Opgave 4:**
 - Ofte så fås sensordata uden metadata eller statusinformation. Lav et flow, der tjekker for tidsstempel, enhedens ID og status.
 
 **Step-by-step:**
-1. Tilføj en Function-node efter din JSON-node.
+1. Tilføj en ny Function-node efter den Function node i har.
+   <img width="3450" height="1727" alt="image" src="https://github.com/user-attachments/assets/4271d4a5-fcbd-4cb5-a786-a93a00fab57c" />
 2. I Function-node, tilføj kode der tjekker for nødvendige metadata:
    ```javascript
    if (!msg.payload.timestamp || !msg.payload.deviceId || !msg.payload.status) {
@@ -108,13 +125,22 @@ Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-
    node.status({fill:"green",shape:"ring",text:"Metadata present"});
    return null;
    ```
-3. Tilslut Function-node til en Debug-node.
+   <img width="3445" height="1732" alt="image" src="https://github.com/user-attachments/assets/c77f0ce7-b413-42b3-bfe4-6ff98dd7311e" />
 4. Deploy flowet og test med forskellige beskeder.
+   <img width="3442" height="1722" alt="image" src="https://github.com/user-attachments/assets/e466d1f0-8327-4e56-89a9-aa3473f97169" />
+5. Tilføj Meta data så vi opnår `node.status({fill:"green",shape:"ring",text:"Metadata present"});` i den næste Function node
+   <img width="3450" height="1720" alt="image" src="https://github.com/user-attachments/assets/7ac2672a-a508-4599-8955-9e8edbedf175" />
 
 ---
 
-## 4️⃣ Ekstra: Simuleret IO-Link Data
-**Opgave 4:**
+## 5️⃣
+**Opgave 5:**
+Tilføj flere sensorer ig vis data via dashboard
+
+---
+
+## 6️⃣ Ekstra: Simuleret IO-Link Data
+**Opgave 6:**
 - Hvis du ikke har adgang til rigtig IO-Link data, kan du simulere data med en Inject-node og MQTT-out.
 
 **Step-by-step:**
