@@ -1,8 +1,24 @@
 # Dag 2: IO-Link & MQTT – Øvelser
 
-Denne dag skal du lære at arbejde med MQTT i Node-RED og hente data fra en IO-Link enhed via MQTT. Opgaverne guider dig igennem opsætning, modtagelse og behandling af data.
+Denne lektion skal du lære at arbejde med MQTT i Node-RED og hente data fra en IO-Link enhed via MQTT. Opgaverne guider dig igennem opsætning, modtagelse og behandling af data.
 
 ---
+
+## Hvad er `test.mosquitto.org`?
+Vi starter med at forestille os **skolegårdens kæmpe opslagstavle**.
+Alle må hænge en seddel op under en bestemt overskrift—fx “dyr/kat”—og alle andre kan læse sedlen eller hænge en ny seddel under samme overskrift. Ingen ejer tavlen, og intet er hemmeligt.
+
+`test.mosquitto.org` er præcis sådan en **fælles opslagstavle på internettet** for små beskeder mellem ting (computere/sensorer).
+I MQTT-verdenen hedder overskrifterne **“topics”**. Når du “skriver en seddel”, kaldes det **publish**; når du står og kigger på en overskrift for at se nye sedler, hedder det **subscribe**.
+
+Et par enkle regler i den her legeplads-analog:
+
+* **Alle kan læse og skrive**, så skriv **ingen hemmeligheder**.
+* Tavlen er **kun til øvelse**—nogle gange er der meget støj, eller den virker ikke perfekt.
+* Der findes både **åbne hængelåse** (ingen sikkerhed) og **låste** (krypteret) måder at hænge sedler op på—men tavlen er stadig offentlig.
+
+Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-beskeder, hvor man lærer at sende og modtage uden at skulle sætte sin egen tavle op.
+
 
 ## 1️⃣ Introduktion til MQTT i Node-RED
 **Opgave 1:**
@@ -12,11 +28,32 @@ Denne dag skal du lære at arbejde med MQTT i Node-RED og hente data fra en IO-L
 - Se beskeden i Debug-vinduet.
 
 **Step-by-step:**
-1. Opret en MQTT-in node og vælg broker + topic.
-2. Opret en MQTT-out node og vælg samme broker + topic.
-3. Opret en Inject-node, der sender en testbesked til MQTT-out.
-4. Tilslut MQTT-in til Debug-node.
-5. Deploy og test at beskeder modtages.
+1. Opret en MQTT-in node
+   <img width="3447" height="1732" alt="image" src="https://github.com/user-attachments/assets/40658a9d-a81b-4e49-8d9f-b304bcf215d8" />
+2. Tryk på MQTT-in noden
+   <img width="3452" height="1732" alt="image" src="https://github.com/user-attachments/assets/8f3be099-c195-4e7b-b7cc-dc810c7f0b26" />
+3. Tryk på **+** for at redigere server config
+   <img width="3452" height="1725" alt="image" src="https://github.com/user-attachments/assets/7c7ef2db-c4cd-4134-822f-f514beac898a" />
+4. Indsæt følgende for broker: `test.mosquitto.org` + port: `1883` og tryk på *Add/Update*
+   <img width="3447" height="1725" alt="image" src="https://github.com/user-attachments/assets/afd81183-18ee-49c3-9046-34f7b9758487" />
+5. Indsæt topic: `test/io-link` og tryk derefter done.
+    <img width="3445" height="1732" alt="image" src="https://github.com/user-attachments/assets/c1eda04a-7d21-4502-a999-682b73a780f9" />
+6. Indsæt en debug node og forbind til MQTT-in noden.
+    <img width="3447" height="1725" alt="image" src="https://github.com/user-attachments/assets/1be93cdf-3946-46b3-9832-f7c9fa2a3d7e" />
+7. Opret en MQTT-out node
+    <img width="3447" height="1720" alt="image" src="https://github.com/user-attachments/assets/e7b23c5c-d84d-46c4-9f68-4797e487f4ed" />
+8. Dobbelt klik på MQTT-out node
+    <img width="3450" height="1730" alt="image" src="https://github.com/user-attachments/assets/5f87711a-baa3-4bbb-a040-72a4969118c2" />
+9. vælg samme broker + topic.
+    <img width="3447" height="1730" alt="image" src="https://github.com/user-attachments/assets/ae74b25f-957e-4d15-a5db-35fdf0ea6d8d" />
+10. Opret en Inject-node, og forbind til MQTT-out node.
+    <img width="3447" height="1720" alt="image" src="https://github.com/user-attachments/assets/602d8b86-24ea-4237-a3eb-50520243342b" />
+11. I Inject-node, tryk på det lille ur ved `msg.payload=` for at vælge datatype `string` -> `az`
+    <img width="3450" height="1735" alt="image" src="https://github.com/user-attachments/assets/18239d08-b533-4c6a-bc18-0a85d3735503" />
+12. Indsæt `string` som du vil have sendt til MQTT-out.
+    <img width="3445" height="1725" alt="image" src="https://github.com/user-attachments/assets/06c5fb96-abaf-4494-84dd-0a621af51e96" />
+14. Tryk på den røde Deploy i højre øverste hjørne og test at beskeder modtages.
+    <img width="3445" height="1727" alt="image" src="https://github.com/user-attachments/assets/ecf10749-2946-4659-af5c-b02a44155976" />
 
 ---
 
