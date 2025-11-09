@@ -135,7 +135,7 @@ Kort sagt: `test.mosquitto.org` er en **gratis, offentlig øve-tavle** for MQTT-
 
 ## 5️⃣
 **Opgave 5:**
-Tilføj flere sensorer ig vis data via dashboard
+Tilføj flere sensorer og præsentere data via dashboard.
 
 ---
 
