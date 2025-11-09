@@ -32,7 +32,7 @@ Du dokumenterer dit arbejde og dine refleksioner løbende i din **github-portef�
 - **Dokumenterende:** Du skal kunne forklare dit arbejde og tankerne bag i både video og skrift.
 
 ## 🧬 Vores rolle som faciliterende undervisere
-- Vi er **vejledere og sparringspartnere**, ikke traditionelle undervisere.
+- Vi er **vejledere og sparringspartnere**, ikke traditionelle undervisere. Visse dage er vi undervisere, men vi fortæller det når tiden er.
 - Vi giver ikke færdige løsninger, men hjælper dig med at finde svarene selv.
 - Vi stiller spørgsmål, udfordrer din tænkning og guider dig videre, når du kører fast.
 - Vi understøtter dit arbejde med tekniske, metodiske og refleksive input.
@@ -74,7 +74,7 @@ Når du har gennemført workshopsene, forventes det at du kan:
 - Der gives bedømmelsen **Godkendt/Ikke godkendt**.
 
 Portfolioen skal dokumentere:
-- Dine tekniske opsætninger (flows, screenshots, dataeksempler).
+- Dine tekniske opsætninger (flows, screenshots, dataeksempler). Her er det ikke nok kun at aflevere billeder men en velbeskrevet opsætning.
 - Dine refleksioner og analyser.
 - Hvordan du har arbejdet med datavalidering, driftssikring og beslutningsstøtte.
 
