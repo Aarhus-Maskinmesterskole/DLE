@@ -6,12 +6,20 @@ Her får du en række opgaver, hvor du lærer at bruge de mest grundlæggende no
 
 ## 1️⃣ Inject Node
 **Opgave 1:**
-- Opret et flow med en Inject-node, der sender en besked (fx "Hello World") til en Debug-node. For at deploy flowet, klik på den røde "Deploy" knap øverst til højre i Node-RED editoren.
+- Opret et flow med en Inject-node, der sender en besked (fx "Hello World") til en Debug-node.
+- Indsæt Inject-node.
+- Indsæt Debug-node.
+- Træk en linje fra output af Inject-node til input af Debug-node.
+- Dobbelt klik på Inject-node og tryk på det lille ur.
+- Skift til data typen `String`
+- For at deploy flowet, klik på den røde "Deploy" knap øverst til højre i Node-RED editoren og se i Debug windows til højre når du trykker på aktivering af Inject-node.
 
 ![alt text](image/image.png)
 
 **Opgave 2:**
 - Skift Inject-node til at sende et tal eller en timestamp. Se resultatet i Debug-vinduet.
+- Dobbelt klik Inject-node.
+- Skift til data typen `Number` eller `timestamp`.
 
 ![alt text](image/image-1.png)
 
@@ -25,13 +33,14 @@ Her får du en række opgaver, hvor du lærer at bruge de mest grundlæggende no
 
 **Opgave 2:**
 - Prøv at ændre Debug-node til kun at vise en specifik del af beskeden (fx msg.topic).
-- Hvorfor viser Debug-noden forskellige oplysninger afhængigt af, hvad du vælger? og hvorfor er den tom?
+- Hvorfor viser Debug-noden forskellige oplysninger afhængigt af, hvad du vælger? og hvorfor er den tom? Brug google, ChatGPT eller andet værktøj som kan give dig et hjælp på vejen.
+- Giv din underviser en forklaring på hvorfor Debug-noden viser forskellige afhængigt af `msg.topic` og `msg.payload` 
 
 ---
 
 ## 3️⃣ Function Node
 **Opgave 1:**
-- Tilføj en Function-node imellem Inject og Debug, der ændrer beskeden til "Du har trykket på knappen!" og send den videre til Debug.
+- Tilføj en Function-node imellem Inject og Debug, der ændrer beskeden til *"Du har trykket på knappen!"* og send den videre til Debug.
 
 **Hint:** Brug `msg.payload = "Du har trykket på knappen!"` før return msg i function til at ændre beskeden.
 
@@ -40,21 +49,26 @@ Her får du en række opgaver, hvor du lærer at bruge de mest grundlæggende no
 **Opgave 2:**
 - Lav en Function-node, der lægger 10 til et tal, der kommer fra Inject-node og vis det i Debug.
 
+*Hint:* brug følgende:
+```javascript
+msg.payload = msg.payload + 10
+return msg
+```
+
 ![alt text](image/image-4.png)
 
 ---
 
 ## 4️⃣ Change Node
 **Opgave 1:**
-- Brug Change-node til at ændre msg.payload fra "Hello" til "Hej med dig" og aflæs i Debug.
+- Brug Change-node til at ændre msg.payload fra "Hello" til *"Hej med dig"* og aflæs i Debug window.
 
 ![alt text](image/image-5.png)
 
 **Opgave 2:**
-- Brug Change-node til at tilføje et nyt felt til beskeden, fx msg.status = "OK" og aflæs i Debug.
+- Brug Change-node til at tilføje et nyt felt til beskeden, fx `msg.status = "OK"` og aflæs i Debug window.
 
 ![alt text](image/image-6.png)
-
 
 
 ---
