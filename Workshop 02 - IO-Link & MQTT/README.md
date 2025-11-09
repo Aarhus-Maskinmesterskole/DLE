@@ -11,7 +11,6 @@ Efter denne dag kan du:
 - **Parse og visualisere** JSON-data fra IO-Link enheder
 - **Bruge MQTT Explorer** til debugging og monitorering
 - **Forstå MQTT over TLS** og hvorfor sikkerhed er vigtig
-- **Beskytte** mod MITM-angreb med TLS-certifikater
 
 ## 📂 Mappestruktur
 
@@ -96,7 +95,6 @@ dag02 - io-link og mqtt/
 - Hvorfor er sikkerhed vigtig i IoT?
 - MITM-angreb (Man-in-the-Middle)
 - Certifikater og kryptering
-- Implementering af MQTT over TLS
 
 **Vigtige koncepter:**
 - **Uden TLS:** Data sendes i klartekst (kan læses af alle)
