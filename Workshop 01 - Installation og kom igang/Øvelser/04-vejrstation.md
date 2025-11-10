@@ -1,2 +1,2 @@
 # Vejrstation
-I denne opgave skal du lave en vejrstation. Følge følgende video på youtube [Weatherstation](https://studio.youtube.com/video/HUtxwjhkCe4/edit)
+I denne opgave skal du lave en vejrstation. Følge følgende video på youtube [Weatherstation](youtube.com/watch?v=HUtxwjhkCe4&feature=youtu.be)
