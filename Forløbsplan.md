@@ -15,8 +15,8 @@
 | **Dag 9** | 27. nov | Ekstern indlæg | Ekstern indlæg |
 | **Dag 10** | 01. dec | Lagring og trafik | Pris, hvad skal lagres, historik, hvordan skal det gøres |
 | **Dag 11** | 02. dec | Ny præsentation: Tjørring Case løsning | Cloud og services integration |
-| **Dag 12** | 03. dec | Digital Twin | Digital Twin |
-| **Dag 13** | 04. dec | Digital Twin | Digital Twin |
+| **Dag 12** | 03. dec | Digital Twin + ML | Digital Twin + ML|
+| **Dag 13** | 04. dec | Digital Twin + ML | Digital Twin + ML|
 | **Dag 14** | 05. dec | Evaluering | Evaluering |
 
 ---
