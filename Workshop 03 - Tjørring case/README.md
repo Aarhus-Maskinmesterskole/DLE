@@ -24,12 +24,12 @@ Jeres opgave er at **genskabe og videreudvikle løsningen**, så Bjarke igen kan
 
 ### Billeder fra den oprindelige løsning
 Løsning i Node-RED:
-![Node-RED Flow](image-1.png)
+![Node-RED Flow](image/image-1.png)
 Dashboard visning:
-![Node-RED Flow](image-2.png)
-![Node-RED Flow](image-3.png)
-![Node-RED Flow](image-4.png)
-![Node-RED Flow](image-5.png)
+![Node-RED Flow](image/image-2.png)
+![Node-RED Flow](image/image-3.png)
+![Node-RED Flow](image/image-4.png)
+![Node-RED Flow](image/image-5.png)
 
 ---
 
