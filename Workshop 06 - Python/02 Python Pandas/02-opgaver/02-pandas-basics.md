@@ -75,7 +75,7 @@ Alle rækker får fx samme tekst i en ny kolonne (område eller kilde):
 
 ```python
 df["område"] = "DK1"   # eller "DK2" alt efter område
-print(df.head())
+print(df.head()) # Eller print(df.columns)
 ```
 
 ---
