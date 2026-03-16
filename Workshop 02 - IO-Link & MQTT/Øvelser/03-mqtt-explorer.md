@@ -13,20 +13,21 @@ Denne vejledning fører dig sikkert fra installation til opsætning af forbindel
 ---
 ## Trin 2 – Start MQTT Explorer
 1. Åbn MQTT Explorer-applikationen.
-![alt text](image.png)
+
+![alt text](image/image.png)
 
 2. Klik på *"Host"* feltet for at konfigurere en ny forbindelse og indsæt følgende oplysninger:
    - **Host**: `test.mosquitto.org`
    - **Port**: `1883` (standard port for ukrypteret MQTT)
    - **Client ID**: Lad stå tomt for automatisk generering eller indtast en unik ID.
 3. Klik på *"Connect"* knappen for at oprette forbindelse til broker'en.
-    ![alt text](image-1.png)
+
+    ![alt text](image/image-1.png)
+
    Dette billede viser at du er forbundet til broker'en og lytter til alle emner. Dette visere endvidere at ingen beskeder på denne broker er krypteret.
 
 4. Prøv at publicere en besked fra MQTT Explorer til topic `aams/test` med payload `first message` og se om den dukker op i MQTT Explorer.
 
-   ![alt text](image-2.png)
+   ![alt text](image/image-2.png)
 
 5. Prøv at publicere en besked fra Node-RED til samme topic `aams/test` med payload `second message` og se om den dukker op i MQTT Explorer.
-
-   
