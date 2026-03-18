@@ -19,6 +19,9 @@ I MQTT protokollen er "Birth" og "Last Will" beskeder vigtige funktioner, der hj
 3. **Implementering af Last Will besked**:
    - Opret en funktion i din MQTT klient, der sender en "Last Will" besked, hvis enheden uventet disconnecter.
    - "Last Will" beskeden skal indeholde oplysninger om enhedens ID og en besked, der informerer om, at enheden er offline.
+
+   ![alt text](image/image-4.png)
+
 4. **Test og validering**:
    - Test din implementering ved at tilslutte og frakoble enheden.
    - Kontroller, at "Birth" beskeden sendes korrekt ved tilslutning.

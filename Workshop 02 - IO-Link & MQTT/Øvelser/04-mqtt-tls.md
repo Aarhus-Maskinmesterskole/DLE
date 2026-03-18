@@ -13,7 +13,7 @@ Man-in-the-Middle (MITM) angreb er en type cyberangreb, hvor en angriber placere
 ### Hvordan opsnappes data uden TLS?
 Uden TLS sendes data i klartekst over netværket, hvilket betyder, at enhver, der har adgang til netværkstrafikken (f.eks. via en Wi-Fi sniffer som Wireshark eller en kompromitteret router), kan læse og potentielt ændre de data, der sendes mellem MQTT-klienten og brokeren.
 
-![alt text](image-3.png)
+![alt text](image/image-3.png)
 
 Figuren ovenfor illustrerer et MITM-angreb, hvor en angriber opsnapper og potentielt kan manipulere data, der sendes mellem en MQTT-klient og en broker uden TLS. Så længe at angriberen kan opsnappe trafikken så kan han se `Source`, `Destination` og `Payload` i klartekst og kan selv nu publicere beskeder til broker'en som om han var den oprindelige klient.
 
