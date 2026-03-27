@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      # Her opgraderer vi fra 18 til 20 for at fixe fejlen
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
       
-      # Nu går vi direkte ind i den nye 'slidev' mappe
       - name: Install and Build
         run: |
           cd "slidev"
@@ -22,5 +23,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Her fortæller vi den, hvor den nye 'dist' mappe ligger
           publish_dir: ./slidev/dist
