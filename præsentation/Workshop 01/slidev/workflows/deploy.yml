@@ -10,11 +10,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install
-      # Her fortæller vi Slidev, at adressen hedder /DLE/
-      - run: npm run build -- --base /DLE/
+      
+      # Vi skal gå ind i mappen før vi installerer og bygger
+      - name: Install and Build
+        run: |
+          cd "præsentation/Workshop 01/slidev"
+          npm install
+          npm run build -- --base /DLE/
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          # Fortæl den hvor den færdige 'dist' mappe ligger nu
+          publish_dir: ./præsentation/Workshop 01/slidev/dist
