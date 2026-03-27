@@ -11,10 +11,10 @@ jobs:
         with:
           node-version: '18'
       
-      # Vi skal gå ind i mappen før vi installerer og bygger
+      # Nu går vi direkte ind i den nye 'slidev' mappe
       - name: Install and Build
         run: |
-          cd "præsentation/Workshop 01/slidev"
+          cd "slidev"
           npm install
           npm run build -- --base /DLE/
       
@@ -22,5 +22,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Fortæl den hvor den færdige 'dist' mappe ligger nu
-          publish_dir: ./præsentation/Workshop 01/slidev/dist
+          # Her fortæller vi den, hvor den nye 'dist' mappe ligger
+          publish_dir: ./slidev/dist
