@@ -1,92 +1,170 @@
 ---
-theme: seriph
-background: https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80
-class: text-center
-highlighter: shiki
-lineNumbers: true
+theme: default
+title: Workshopforløb
 ---
 
-# IoT & Programmering for Maskinmestre 🛠️
-## 7 Workshops: Fra Installation til Python Control
-Aarhus Maskinmesterskole
+# Workshopforløb
 
-<div class="pt-12">
-  <span class="opacity-50">Tryk på Space for at se kursusplanen</span>
-</div>
+## Industriel IT, kommunikation og Python
 
----
-layout: default
----
+<v-clicks>
 
-# Kursusoversigt: De 7 Workshops
+- Node-RED
+- IO-Link og MQTT
+- HTTP API og servere
+- Python til kommunikation og dataanalyse
+- Visualisering
+- Integration med MCP
 
-<div class="grid grid-cols-2 gap-x-10 gap-y-4">
-
-<div v-click>
-<h3 class="text-blue-500">Del 1: Node-RED & OT Integration</h3>
-
-**WS 1: Installation & Miljø**
-* Setup af Node-RED, Docker & Flows basics.
-
-**WS 2: IO-Link & MQTT**
-* Hentning af sensordata fra hardware til broker.
-
-**WS 3: HTTP API & Server**
-* Lav din egen webserver og REST endpoints.
-</div>
-
-<div v-click>
-<h3 class="text-green-600">Del 2: Python & Data Science</h3>
-
-**WS 4: Python Basics + MQTT**
-* Syntaks, loops og `paho-mqtt` biblioteket.
-
-**WS 5: Data med Pandas**
-* Håndtering af store datamængder og tabeller.
-
-**WS 6: Visualisering med Matplotlib**
-* Grafer, trends og data-analyse.
-
-**WS 7: Python MCP (Master Control Program)**
-* Samling af det hele: Logik, styring og integration.
-</div>
-
-</div>
-
----
-layout: center
-class: text-center
----
-
-# Workshop 1: Node-RED Installation 🚀
-*Dagens mål: At få "motoren" op at køre.*
-
-<div class="grid grid-cols-3 gap-4 mt-10">
-  <div class="border border-main p-4 rounded">
-    <carbon:settings />
-    <p>Installation</p>
-  </div>
-  <div class="border border-main p-4 rounded">
-    <carbon:flow />
-    <p>First Flow</p>
-  </div>
-  <div class="border border-main p-4 rounded">
-    <carbon:debug />
-    <p>Debug Node</p>
-  </div>
-</div>
+</v-clicks>
 
 ---
 
-# Roadmap Visualisering
-Hvordan de 7 workshops hænger sammen:
+# Oversigt
 
-```mermaid
-graph TD
-  WS1[WS1: Node-RED] --> WS2[WS2: IO-Link/MQTT]
-  WS2 --> WS3[WS3: HTTP API]
-  WS3 --> WS4[WS4: Python MQTT]
-  WS4 --> WS5[WS5: Pandas]
-  WS5 --> WS6[WS6: Matplotlib]
-  WS6 --> WS7[WS7: Det samlede system]
-  style WS7 fill:#f96,stroke:#333,stroke-width:4px
+| Workshop | Emne | Fokusområde |
+| :--- | :--- | :--- |
+| **1** | **Node-RED Installation** | Miljø, Docker & Flows |
+| **2** | **IO-Link & MQTT** | Hardware-protokoller & Beskeder |
+| **3** | **HTTP API & Server** | Web-services & Endpoints |
+| **4** | **Python Basics + MQTT** | Scripting & Kommunikation |
+| **5** | **Python Pandas** | Datamanipulation & Tabeller |
+| **6** | **Python Matplotlib** | Visualisering & Trends |
+| **7** | **Python MCP** | Master Control Program (Integration) |
+
+---
+
+# Workshop 1
+
+## Node-RED Installation
+
+**Fokusområde**
+- Opsætning af miljø
+- Installation med Docker
+- Introduktion til flows
+- Første simple automation
+
+**Mål**
+- Kunne starte Node-RED lokalt
+- Forstå hvordan et flow bygges op
+- Kunne forbinde noder og deploye et flow
+
+---
+
+# Workshop 2
+
+## IO-Link & MQTT
+
+**Fokusområde**
+- IO-Link som industriel kommunikation
+- MQTT som letvægts beskedprotokol
+- Data fra hardware til software
+
+**Mål**
+- Forstå forskellen på IO-Link og MQTT
+- Kunne sende og modtage MQTT-beskeder
+- Integrere sensordata i et flow
+
+---
+
+# Workshop 3
+
+## HTTP API & Server
+
+**Fokusområde**
+- REST og HTTP-metoder
+- Endpoints
+- Dataudveksling mellem klient og server
+
+**Mål**
+- Forstå GET, POST og simple API-kald
+- Kunne oprette simple endpoints
+- Kunne teste APIs med relevante værktøjer
+
+---
+
+# Workshop 4
+
+## Python Basics + MQTT
+
+**Fokusområde**
+- Grundlæggende Python
+- Scripts og variabler
+- MQTT-kommunikation fra Python
+
+**Mål**
+- Skrive simple Python-scripts
+- Forbinde Python til en MQTT broker
+- Publicere og abonnere på beskeder
+
+---
+
+# Workshop 5
+
+## Python Pandas
+
+**Fokusområde**
+- Datamanipulation
+- Tabeller og datastrukturer
+- Filindlæsning og filtrering
+
+**Mål**
+- Læse CSV/datafiler ind i Python
+- Arbejde med DataFrames
+- Filtrere, sortere og analysere datasæt
+
+---
+
+# Workshop 6
+
+## Python Matplotlib
+
+**Fokusområde**
+- Visualisering af data
+- Grafer og trends
+- Enkel præsentation af målinger
+
+**Mål**
+- Lave simple plots
+- Visualisere tidsserier og måledata
+- Tolke trends og afvigelser
+
+---
+
+# Workshop 7
+
+## Python MCP
+
+**Fokusområde**
+- Integration mellem systemer
+- Styring og overvågning
+- Samlet dataflow
+
+**Mål**
+- Forstå MCP i en integrationskontekst
+- Koble flere teknologier sammen
+- Udarbejde en samlet løsning
+
+---
+
+# Samlet læringsmål
+
+Efter forløbet skal I kunne:
+
+<v-clicks>
+
+- installere og konfigurere Node-RED
+- arbejde med IO-Link og MQTT
+- forstå og bruge HTTP APIs
+- skrive Python til kommunikation og databehandling
+- analysere data med Pandas
+- visualisere data med Matplotlib
+- integrere flere teknologier i én løsning
+
+</v-clicks>
+
+---
+
+# Tak for i dag
+
+## Spørgsmål?
