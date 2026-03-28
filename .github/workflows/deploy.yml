@@ -1,21 +1,25 @@
 name: Deploy Slides
+
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      # Her opgraderer vi til Node 20 for at understøtte Slidev
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       
       - name: Install and Build
         run: |
-          cd "slidev"
+          cd slidev
           npm install
           npm run build -- --base /DLE/
       
